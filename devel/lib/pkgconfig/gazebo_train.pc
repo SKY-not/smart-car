@@ -1,0 +1,8 @@
+prefix=/home/kiwi/SmartCar/smart-car/devel
+
+Name: gazebo_train
+Description: Description of gazebo_train
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

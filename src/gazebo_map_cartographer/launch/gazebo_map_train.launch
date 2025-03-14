@@ -1,0 +1,4 @@
+<launch>
+    <include file = "$(find gazebo_train)/launch/race.launch"/>
+    <include file = "$(find gazebo_map_cartographer)/launch/demo_revo_lds.launch"/>
+</launch>

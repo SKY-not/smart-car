@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find gazebo_race)/launch/race.launch"/>
+    <include file="$(find gazebo_nav)/launch/dwa_demo.launch"/>
+</launch>

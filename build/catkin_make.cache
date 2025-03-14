@@ -1,0 +1,2 @@
+gazebo_map_cartographer:gazebo_map_gmapping:gazebo_nav:gazebo_race:gazebo_train:radiation_pub:radiation_pub2:simple_navigation_goals:simple_navigation_goals2
+-DCATKIN_DEVEL_PREFIX=/home/kiwi/SmartCar/smart-car/devel -DCMAKE_INSTALL_PREFIX=/home/kiwi/SmartCar/smart-car/install -G Unix Makefiles

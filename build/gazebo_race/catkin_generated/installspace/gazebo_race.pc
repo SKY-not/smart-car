@@ -1,0 +1,8 @@
+prefix=/home/kiwi/SmartCar/smart-car/install
+
+Name: gazebo_race
+Description: Description of gazebo_race
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,12 @@
+<launch>
+    <node pkg="gmapping" name="slam_gmapping" type="slam_gmapping">
+        <param name="particles" value="60"/>
+        <param name="maxUrange" value="10.0"/>
+        <param name="xmin" value="-1.0"/>
+        <param name="xmax" value="1.0"/>
+        <param name="ymin" value="-1.0"/>
+        <param name="ymax" value="1.0"/>
+    </node>
+    <node name="rviz" pkg="rviz" type="rviz" required="true"
+        args="-d $(find gazebo_map_gmapping)/cfg/demo.rviz" />
+</launch>

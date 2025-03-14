@@ -1,0 +1,8 @@
+prefix=/home/kiwi/SmartCar/smart-car/devel
+
+Name: gazebo_map_gmapping
+Description: Description of gazebo_map_gmapping
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

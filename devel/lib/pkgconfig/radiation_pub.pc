@@ -1,0 +1,8 @@
+prefix=/home/kiwi/SmartCar/smart-car/devel
+
+Name: radiation_pub
+Description: Description of radiation_pub
+Version: 0.0.0
+Cflags: -I/home/kiwi/SmartCar/smart-car/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime
