@@ -206,5 +206,8 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-add_executable(navigation src/navigation.py)
-target_link_libraries(navigation ${catkin_LIBRARIES})
+add_custom_target(run_navigation
+    COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/src/navigation.py
+    DEPENDS src/navigation.py
+)
+

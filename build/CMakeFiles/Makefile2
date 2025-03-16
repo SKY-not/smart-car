@@ -271,6 +271,7 @@ navigation/preinstall:
 
 # Recursive "clean" directory target.
 navigation/clean: navigation/CMakeFiles/actionlib_generate_messages_cpp.dir/clean
+navigation/clean: navigation/CMakeFiles/run_navigation.dir/clean
 navigation/clean: navigation/CMakeFiles/actionlib_generate_messages_eus.dir/clean
 navigation/clean: navigation/CMakeFiles/actionlib_generate_messages_lisp.dir/clean
 navigation/clean: navigation/CMakeFiles/actionlib_generate_messages_nodejs.dir/clean
@@ -2279,6 +2280,33 @@ actionlib_generate_messages_cpp: navigation/CMakeFiles/actionlib_generate_messag
 navigation/CMakeFiles/actionlib_generate_messages_cpp.dir/clean:
 	$(MAKE) -f navigation/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make navigation/CMakeFiles/actionlib_generate_messages_cpp.dir/clean
 .PHONY : navigation/CMakeFiles/actionlib_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target navigation/CMakeFiles/run_navigation.dir
+
+# All Build rule for target.
+navigation/CMakeFiles/run_navigation.dir/all:
+	$(MAKE) -f navigation/CMakeFiles/run_navigation.dir/build.make navigation/CMakeFiles/run_navigation.dir/depend
+	$(MAKE) -f navigation/CMakeFiles/run_navigation.dir/build.make navigation/CMakeFiles/run_navigation.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/SmartCar/smart-car/build/CMakeFiles --progress-num= "Built target run_navigation"
+.PHONY : navigation/CMakeFiles/run_navigation.dir/all
+
+# Build rule for subdir invocation for target.
+navigation/CMakeFiles/run_navigation.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/SmartCar/smart-car/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 navigation/CMakeFiles/run_navigation.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/SmartCar/smart-car/build/CMakeFiles 0
+.PHONY : navigation/CMakeFiles/run_navigation.dir/rule
+
+# Convenience name for target.
+run_navigation: navigation/CMakeFiles/run_navigation.dir/rule
+
+.PHONY : run_navigation
+
+# clean rule for target.
+navigation/CMakeFiles/run_navigation.dir/clean:
+	$(MAKE) -f navigation/CMakeFiles/run_navigation.dir/build.make navigation/CMakeFiles/run_navigation.dir/clean
+.PHONY : navigation/CMakeFiles/run_navigation.dir/clean
 
 #=============================================================================
 # Target rules for target navigation/CMakeFiles/actionlib_generate_messages_eus.dir

@@ -56,18 +56,6 @@ CMAKE_BINARY_DIR = /home/kiwi/SmartCar/smart-car/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -101,6 +89,18 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -181,6 +181,21 @@ actionlib_generate_messages_cpp: navigation/CMakeFiles/actionlib_generate_messag
 actionlib_generate_messages_cpp/fast:
 	cd /home/kiwi/SmartCar/smart-car/build && $(MAKE) -f navigation/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make navigation/CMakeFiles/actionlib_generate_messages_cpp.dir/build
 .PHONY : actionlib_generate_messages_cpp/fast
+
+# Convenience name for target.
+navigation/CMakeFiles/run_navigation.dir/rule:
+	cd /home/kiwi/SmartCar/smart-car/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/CMakeFiles/run_navigation.dir/rule
+.PHONY : navigation/CMakeFiles/run_navigation.dir/rule
+
+# Convenience name for target.
+run_navigation: navigation/CMakeFiles/run_navigation.dir/rule
+
+.PHONY : run_navigation
+
+# fast build rule for target.
+run_navigation/fast:
+	cd /home/kiwi/SmartCar/smart-car/build && $(MAKE) -f navigation/CMakeFiles/run_navigation.dir/build.make navigation/CMakeFiles/run_navigation.dir/build
+.PHONY : run_navigation/fast
 
 # Convenience name for target.
 navigation/CMakeFiles/actionlib_generate_messages_eus.dir/rule:
@@ -323,11 +338,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... actionlib_generate_messages_cpp"
+	@echo "... install/strip"
+	@echo "... run_navigation"
 	@echo "... actionlib_generate_messages_eus"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"

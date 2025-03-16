@@ -1039,6 +1039,19 @@ actionlib_generate_messages_cpp/fast:
 .PHONY : actionlib_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named run_navigation
+
+# Build rule for target.
+run_navigation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_navigation
+.PHONY : run_navigation
+
+# fast build rule for target.
+run_navigation/fast:
+	$(MAKE) -f navigation/CMakeFiles/run_navigation.dir/build.make navigation/CMakeFiles/run_navigation.dir/build
+.PHONY : run_navigation/fast
+
+#=============================================================================
 # Target rules for targets named actionlib_generate_messages_eus
 
 # Build rule for target.
@@ -1495,6 +1508,7 @@ help:
 	@echo "... radiation_pub2_generate_messages"
 	@echo "... radiation_pub2"
 	@echo "... actionlib_generate_messages_cpp"
+	@echo "... run_navigation"
 	@echo "... actionlib_generate_messages_eus"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_nodejs"

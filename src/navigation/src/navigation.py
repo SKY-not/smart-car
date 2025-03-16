@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import rospy
@@ -88,7 +88,7 @@ def meow(str):
 
 def main():
     global id, x_rad, y_rad
-    rospy.init_node('simple_navigation_goals')
+    rospy.init_node('navigation_node')
     meow("navigation.py started")
     sub = rospy.Subscriber('radiation', Float64MultiArray, radiation_sub)
     meow("subscribed to radiation")
@@ -118,7 +118,7 @@ def main():
         ac.wait_for_result()
         meow("finished goal")
         id = i
-        rospy.spin()
+        # rospy.spin()
         rospy.loginfo("%d!", i)
 
     get_rad_xy()

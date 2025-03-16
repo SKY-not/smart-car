@@ -120,11 +120,12 @@
 /home/kiwi/SmartCar/smart-car/build/radiation_pub2/CMakeFiles/radiation_pub2_genpy.dir
 /home/kiwi/SmartCar/smart-car/build/radiation_pub2/CMakeFiles/radiation_pub2_generate_messages.dir
 /home/kiwi/SmartCar/smart-car/build/radiation_pub2/CMakeFiles/radiation_pub2.dir
-/home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/install/strip.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/install/local.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/install.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/list_install_components.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/actionlib_generate_messages_cpp.dir
+/home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/install/strip.dir
+/home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/run_navigation.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/actionlib_generate_messages_eus.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/rebuild_cache.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/edit_cache.dir
