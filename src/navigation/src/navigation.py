@@ -119,6 +119,7 @@ def main():
         meow("finished goal")
         id = i
         # rospy.spin()
+        #msg2 = rospy.wait_for_message('/receiver', receiver_data, timeout=None)
         rospy.loginfo("%d!", i)
 
     get_rad_xy()
