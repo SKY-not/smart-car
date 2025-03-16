@@ -94,6 +94,7 @@ int main(int argc, char** argv){
     
     FILE *fout=fopen("/home/kiwi/SmartCar/smart-car/rad_info.txt","w");
     fprintf(fout,"%lf %lf\n",x_rad,y_rad);
+    fprintf(fout,"from simple_navigation_goals.cpp\n");
     fclose(fout);
 
     goal.target_pose.pose.position.x = x_rad;
