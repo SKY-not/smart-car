@@ -1026,6 +1026,305 @@ radiation_pub2/fast:
 .PHONY : radiation_pub2/fast
 
 #=============================================================================
+# Target rules for targets named actionlib_generate_messages_cpp
+
+# Build rule for target.
+actionlib_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_cpp
+.PHONY : actionlib_generate_messages_cpp
+
+# fast build rule for target.
+actionlib_generate_messages_cpp/fast:
+	$(MAKE) -f navigation/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make navigation/CMakeFiles/actionlib_generate_messages_cpp.dir/build
+.PHONY : actionlib_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_eus
+
+# Build rule for target.
+actionlib_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_eus
+.PHONY : actionlib_generate_messages_eus
+
+# fast build rule for target.
+actionlib_generate_messages_eus/fast:
+	$(MAKE) -f navigation/CMakeFiles/actionlib_generate_messages_eus.dir/build.make navigation/CMakeFiles/actionlib_generate_messages_eus.dir/build
+.PHONY : actionlib_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_lisp
+
+# Build rule for target.
+actionlib_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_lisp
+.PHONY : actionlib_generate_messages_lisp
+
+# fast build rule for target.
+actionlib_generate_messages_lisp/fast:
+	$(MAKE) -f navigation/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make navigation/CMakeFiles/actionlib_generate_messages_lisp.dir/build
+.PHONY : actionlib_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_nodejs
+
+# Build rule for target.
+actionlib_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_nodejs
+.PHONY : actionlib_generate_messages_nodejs
+
+# fast build rule for target.
+actionlib_generate_messages_nodejs/fast:
+	$(MAKE) -f navigation/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make navigation/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
+.PHONY : actionlib_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named move_base_msgs_generate_messages_eus
+
+# Build rule for target.
+move_base_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 move_base_msgs_generate_messages_eus
+.PHONY : move_base_msgs_generate_messages_eus
+
+# fast build rule for target.
+move_base_msgs_generate_messages_eus/fast:
+	$(MAKE) -f navigation/CMakeFiles/move_base_msgs_generate_messages_eus.dir/build.make navigation/CMakeFiles/move_base_msgs_generate_messages_eus.dir/build
+.PHONY : move_base_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named move_base_msgs_generate_messages_nodejs
+
+# Build rule for target.
+move_base_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 move_base_msgs_generate_messages_nodejs
+.PHONY : move_base_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+move_base_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f navigation/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/build.make navigation/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/build
+.PHONY : move_base_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_py
+
+# Build rule for target.
+actionlib_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_py
+.PHONY : actionlib_generate_messages_py
+
+# fast build rule for target.
+actionlib_generate_messages_py/fast:
+	$(MAKE) -f navigation/CMakeFiles/actionlib_generate_messages_py.dir/build.make navigation/CMakeFiles/actionlib_generate_messages_py.dir/build
+.PHONY : actionlib_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named move_base_msgs_generate_messages_cpp
+
+# Build rule for target.
+move_base_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 move_base_msgs_generate_messages_cpp
+.PHONY : move_base_msgs_generate_messages_cpp
+
+# fast build rule for target.
+move_base_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f navigation/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/build.make navigation/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/build
+.PHONY : move_base_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named move_base_msgs_generate_messages_lisp
+
+# Build rule for target.
+move_base_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 move_base_msgs_generate_messages_lisp
+.PHONY : move_base_msgs_generate_messages_lisp
+
+# fast build rule for target.
+move_base_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f navigation/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/build.make navigation/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/build
+.PHONY : move_base_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named move_base_msgs_generate_messages_py
+
+# Build rule for target.
+move_base_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 move_base_msgs_generate_messages_py
+.PHONY : move_base_msgs_generate_messages_py
+
+# fast build rule for target.
+move_base_msgs_generate_messages_py/fast:
+	$(MAKE) -f navigation/CMakeFiles/move_base_msgs_generate_messages_py.dir/build.make navigation/CMakeFiles/move_base_msgs_generate_messages_py.dir/build
+.PHONY : move_base_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new_generate_messages
+
+# Build rule for target.
+radiation_pub_new_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new_generate_messages
+.PHONY : radiation_pub_new_generate_messages
+
+# fast build rule for target.
+radiation_pub_new_generate_messages/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages.dir/build
+.PHONY : radiation_pub_new_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named _radiation_pub_new_generate_messages_check_deps_radiation
+
+# Build rule for target.
+_radiation_pub_new_generate_messages_check_deps_radiation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _radiation_pub_new_generate_messages_check_deps_radiation
+.PHONY : _radiation_pub_new_generate_messages_check_deps_radiation
+
+# fast build rule for target.
+_radiation_pub_new_generate_messages_check_deps_radiation/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/_radiation_pub_new_generate_messages_check_deps_radiation.dir/build.make radiation_pub_new/CMakeFiles/_radiation_pub_new_generate_messages_check_deps_radiation.dir/build
+.PHONY : _radiation_pub_new_generate_messages_check_deps_radiation/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new_gennodejs
+
+# Build rule for target.
+radiation_pub_new_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new_gennodejs
+.PHONY : radiation_pub_new_gennodejs
+
+# fast build rule for target.
+radiation_pub_new_gennodejs/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new_gennodejs.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new_gennodejs.dir/build
+.PHONY : radiation_pub_new_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new_generate_messages_cpp
+
+# Build rule for target.
+radiation_pub_new_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new_generate_messages_cpp
+.PHONY : radiation_pub_new_generate_messages_cpp
+
+# fast build rule for target.
+radiation_pub_new_generate_messages_cpp/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_cpp.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_cpp.dir/build
+.PHONY : radiation_pub_new_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new_gencpp
+
+# Build rule for target.
+radiation_pub_new_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new_gencpp
+.PHONY : radiation_pub_new_gencpp
+
+# fast build rule for target.
+radiation_pub_new_gencpp/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new_gencpp.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new_gencpp.dir/build
+.PHONY : radiation_pub_new_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new_generate_messages_eus
+
+# Build rule for target.
+radiation_pub_new_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new_generate_messages_eus
+.PHONY : radiation_pub_new_generate_messages_eus
+
+# fast build rule for target.
+radiation_pub_new_generate_messages_eus/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_eus.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_eus.dir/build
+.PHONY : radiation_pub_new_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new_genpy
+
+# Build rule for target.
+radiation_pub_new_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new_genpy
+.PHONY : radiation_pub_new_genpy
+
+# fast build rule for target.
+radiation_pub_new_genpy/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new_genpy.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new_genpy.dir/build
+.PHONY : radiation_pub_new_genpy/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new_geneus
+
+# Build rule for target.
+radiation_pub_new_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new_geneus
+.PHONY : radiation_pub_new_geneus
+
+# fast build rule for target.
+radiation_pub_new_geneus/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new_geneus.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new_geneus.dir/build
+.PHONY : radiation_pub_new_geneus/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new_genlisp
+
+# Build rule for target.
+radiation_pub_new_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new_genlisp
+.PHONY : radiation_pub_new_genlisp
+
+# fast build rule for target.
+radiation_pub_new_genlisp/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new_genlisp.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new_genlisp.dir/build
+.PHONY : radiation_pub_new_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new_generate_messages_lisp
+
+# Build rule for target.
+radiation_pub_new_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new_generate_messages_lisp
+.PHONY : radiation_pub_new_generate_messages_lisp
+
+# fast build rule for target.
+radiation_pub_new_generate_messages_lisp/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_lisp.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_lisp.dir/build
+.PHONY : radiation_pub_new_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new_generate_messages_nodejs
+
+# Build rule for target.
+radiation_pub_new_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new_generate_messages_nodejs
+.PHONY : radiation_pub_new_generate_messages_nodejs
+
+# fast build rule for target.
+radiation_pub_new_generate_messages_nodejs/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_nodejs.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_nodejs.dir/build
+.PHONY : radiation_pub_new_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new_generate_messages_py
+
+# Build rule for target.
+radiation_pub_new_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new_generate_messages_py
+.PHONY : radiation_pub_new_generate_messages_py
+
+# fast build rule for target.
+radiation_pub_new_generate_messages_py/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_py.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_py.dir/build
+.PHONY : radiation_pub_new_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named radiation_pub_new
+
+# Build rule for target.
+radiation_pub_new: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 radiation_pub_new
+.PHONY : radiation_pub_new
+
+# fast build rule for target.
+radiation_pub_new/fast:
+	$(MAKE) -f radiation_pub_new/CMakeFiles/radiation_pub_new.dir/build.make radiation_pub_new/CMakeFiles/radiation_pub_new.dir/build
+.PHONY : radiation_pub_new/fast
+
+#=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_py
 
 # Build rule for target.
@@ -1091,123 +1390,6 @@ sensor_msgs_generate_messages_cpp/fast:
 .PHONY : sensor_msgs_generate_messages_cpp/fast
 
 #=============================================================================
-# Target rules for targets named actionlib_generate_messages_cpp
-
-# Build rule for target.
-actionlib_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_cpp
-.PHONY : actionlib_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_generate_messages_cpp/fast:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make simple_navigation_goals/CMakeFiles/actionlib_generate_messages_cpp.dir/build
-.PHONY : actionlib_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_generate_messages_eus
-
-# Build rule for target.
-actionlib_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_eus
-.PHONY : actionlib_generate_messages_eus
-
-# fast build rule for target.
-actionlib_generate_messages_eus/fast:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/actionlib_generate_messages_eus.dir/build.make simple_navigation_goals/CMakeFiles/actionlib_generate_messages_eus.dir/build
-.PHONY : actionlib_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_generate_messages_lisp
-
-# Build rule for target.
-actionlib_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_lisp
-.PHONY : actionlib_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_generate_messages_lisp/fast:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make simple_navigation_goals/CMakeFiles/actionlib_generate_messages_lisp.dir/build
-.PHONY : actionlib_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_generate_messages_nodejs
-
-# Build rule for target.
-actionlib_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_nodejs
-.PHONY : actionlib_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_generate_messages_nodejs/fast:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make simple_navigation_goals/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
-.PHONY : actionlib_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named move_base_msgs_generate_messages_eus
-
-# Build rule for target.
-move_base_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 move_base_msgs_generate_messages_eus
-.PHONY : move_base_msgs_generate_messages_eus
-
-# fast build rule for target.
-move_base_msgs_generate_messages_eus/fast:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/move_base_msgs_generate_messages_eus.dir/build.make simple_navigation_goals/CMakeFiles/move_base_msgs_generate_messages_eus.dir/build
-.PHONY : move_base_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named move_base_msgs_generate_messages_nodejs
-
-# Build rule for target.
-move_base_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 move_base_msgs_generate_messages_nodejs
-.PHONY : move_base_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-move_base_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/build.make simple_navigation_goals/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/build
-.PHONY : move_base_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_generate_messages_py
-
-# Build rule for target.
-actionlib_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_py
-.PHONY : actionlib_generate_messages_py
-
-# fast build rule for target.
-actionlib_generate_messages_py/fast:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/actionlib_generate_messages_py.dir/build.make simple_navigation_goals/CMakeFiles/actionlib_generate_messages_py.dir/build
-.PHONY : actionlib_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named move_base_msgs_generate_messages_cpp
-
-# Build rule for target.
-move_base_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 move_base_msgs_generate_messages_cpp
-.PHONY : move_base_msgs_generate_messages_cpp
-
-# fast build rule for target.
-move_base_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/build.make simple_navigation_goals/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/build
-.PHONY : move_base_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named move_base_msgs_generate_messages_lisp
-
-# Build rule for target.
-move_base_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 move_base_msgs_generate_messages_lisp
-.PHONY : move_base_msgs_generate_messages_lisp
-
-# fast build rule for target.
-move_base_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/build.make simple_navigation_goals/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/build
-.PHONY : move_base_msgs_generate_messages_lisp/fast
-
-#=============================================================================
 # Target rules for targets named simple_navigation_goals
 
 # Build rule for target.
@@ -1219,19 +1401,6 @@ simple_navigation_goals: cmake_check_build_system
 simple_navigation_goals/fast:
 	$(MAKE) -f simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/build.make simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/build
 .PHONY : simple_navigation_goals/fast
-
-#=============================================================================
-# Target rules for targets named move_base_msgs_generate_messages_py
-
-# Build rule for target.
-move_base_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 move_base_msgs_generate_messages_py
-.PHONY : move_base_msgs_generate_messages_py
-
-# fast build rule for target.
-move_base_msgs_generate_messages_py/fast:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/move_base_msgs_generate_messages_py.dir/build.make simple_navigation_goals/CMakeFiles/move_base_msgs_generate_messages_py.dir/build
-.PHONY : move_base_msgs_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named simple_navigation_goals2
@@ -1325,11 +1494,6 @@ help:
 	@echo "... radiation_pub2_genpy"
 	@echo "... radiation_pub2_generate_messages"
 	@echo "... radiation_pub2"
-	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_eus"
-	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_eus"
 	@echo "... actionlib_generate_messages_lisp"
@@ -1339,8 +1503,26 @@ help:
 	@echo "... actionlib_generate_messages_py"
 	@echo "... move_base_msgs_generate_messages_cpp"
 	@echo "... move_base_msgs_generate_messages_lisp"
-	@echo "... simple_navigation_goals"
 	@echo "... move_base_msgs_generate_messages_py"
+	@echo "... radiation_pub_new_generate_messages"
+	@echo "... _radiation_pub_new_generate_messages_check_deps_radiation"
+	@echo "... radiation_pub_new_gennodejs"
+	@echo "... radiation_pub_new_generate_messages_cpp"
+	@echo "... radiation_pub_new_gencpp"
+	@echo "... radiation_pub_new_generate_messages_eus"
+	@echo "... radiation_pub_new_genpy"
+	@echo "... radiation_pub_new_geneus"
+	@echo "... radiation_pub_new_genlisp"
+	@echo "... radiation_pub_new_generate_messages_lisp"
+	@echo "... radiation_pub_new_generate_messages_nodejs"
+	@echo "... radiation_pub_new_generate_messages_py"
+	@echo "... radiation_pub_new"
+	@echo "... sensor_msgs_generate_messages_py"
+	@echo "... sensor_msgs_generate_messages_nodejs"
+	@echo "... sensor_msgs_generate_messages_lisp"
+	@echo "... sensor_msgs_generate_messages_eus"
+	@echo "... sensor_msgs_generate_messages_cpp"
+	@echo "... simple_navigation_goals"
 	@echo "... simple_navigation_goals2"
 .PHONY : help
 

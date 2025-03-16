@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(radiation_pub)
+project(radiation_pub_new)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -201,5 +201,5 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-add_executable(radiation_pub src/radiation_pub.cpp)
-target_link_libraries(radiation_pub ${catkin_LIBRARIES})
+add_executable(radiation_pub_new src/radiation_pub_new.cpp)
+target_link_libraries(radiation_pub_new ${catkin_LIBRARIES})

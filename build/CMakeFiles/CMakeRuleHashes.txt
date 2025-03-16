@@ -1,18 +1,25 @@
 # Hashes of file build rules.
 5d05910a515867b445be1908c151d28e /home/kiwi/SmartCar/smart-car/devel/include/radiation_pub/radiation.h
 9e01b604a35b1d69ecf21d227ac3f334 /home/kiwi/SmartCar/smart-car/devel/include/radiation_pub2/radiation2.h
+ff623e9ffc7d708c0706e4a92b9399f5 /home/kiwi/SmartCar/smart-car/devel/include/radiation_pub_new/radiation.h
 970a7e0af316e6e2912e1bb9585daf05 /home/kiwi/SmartCar/smart-car/devel/lib/python3/dist-packages/radiation_pub/msg/__init__.py
 2a265054b7336db4a6ade6351c8548da /home/kiwi/SmartCar/smart-car/devel/lib/python3/dist-packages/radiation_pub/msg/_radiation.py
 3e00b2ee8f75508a3a0f351bea8e8759 /home/kiwi/SmartCar/smart-car/devel/lib/python3/dist-packages/radiation_pub2/msg/__init__.py
 a4fb7f29c2c5d4b5f905362df221a14f /home/kiwi/SmartCar/smart-car/devel/lib/python3/dist-packages/radiation_pub2/msg/_radiation2.py
+c813d34e25daf9137923ba101f8a6cc8 /home/kiwi/SmartCar/smart-car/devel/lib/python3/dist-packages/radiation_pub_new/msg/__init__.py
+059ec6ee5f8a8387ec5d83e524b3f3af /home/kiwi/SmartCar/smart-car/devel/lib/python3/dist-packages/radiation_pub_new/msg/_radiation.py
 c93023b737689c6d91250d584a638739 /home/kiwi/SmartCar/smart-car/devel/share/common-lisp/ros/radiation_pub/msg/radiation.lisp
 0d01980b45fbb473a4aba36ca7fd7c67 /home/kiwi/SmartCar/smart-car/devel/share/common-lisp/ros/radiation_pub2/msg/radiation2.lisp
+1cf9e917a4b1b65f450ce3e2ab72b9c0 /home/kiwi/SmartCar/smart-car/devel/share/common-lisp/ros/radiation_pub_new/msg/radiation.lisp
 8b9ab8076b8f1318fa52dbfadf55ab7d /home/kiwi/SmartCar/smart-car/devel/share/gennodejs/ros/radiation_pub/msg/radiation.js
 ee0361accef3c1b93d3730607a516a4f /home/kiwi/SmartCar/smart-car/devel/share/gennodejs/ros/radiation_pub2/msg/radiation2.js
+96179b089467a90843358afbca442fd8 /home/kiwi/SmartCar/smart-car/devel/share/gennodejs/ros/radiation_pub_new/msg/radiation.js
 a138e30ac54fb954488a9de3566b96c4 /home/kiwi/SmartCar/smart-car/devel/share/roseus/ros/radiation_pub/manifest.l
 34a16cae07fb96852c866b80a808cac3 /home/kiwi/SmartCar/smart-car/devel/share/roseus/ros/radiation_pub/msg/radiation.l
 26cfca48de07c2465d2ec52b15214d81 /home/kiwi/SmartCar/smart-car/devel/share/roseus/ros/radiation_pub2/manifest.l
 4f7c323ae4753f6a57c9d431df852e6b /home/kiwi/SmartCar/smart-car/devel/share/roseus/ros/radiation_pub2/msg/radiation2.l
+ecafa42d01850d10a0c10402df2d6f24 /home/kiwi/SmartCar/smart-car/devel/share/roseus/ros/radiation_pub_new/manifest.l
+d120e9863cf4dd562169a5098c9dbc87 /home/kiwi/SmartCar/smart-car/devel/share/roseus/ros/radiation_pub_new/msg/radiation.l
 341924ed075dcdd2156665970a74127e CMakeFiles/clean_test_results
 ee695854dbfea0c4cd27f4b40e613488 radiation_pub/CMakeFiles/_radiation_pub_generate_messages_check_deps_radiation
 f967aeda2ca65fe4a01706bfc72a0ba2 radiation_pub/CMakeFiles/radiation_pub_generate_messages_cpp
@@ -26,3 +33,9 @@ c5459d4b94bde0be509c236bf6441077 radiation_pub2/CMakeFiles/_radiation_pub2_gener
 5edf0744c6702495866ec7773ec66abd radiation_pub2/CMakeFiles/radiation_pub2_generate_messages_lisp
 5edf0744c6702495866ec7773ec66abd radiation_pub2/CMakeFiles/radiation_pub2_generate_messages_nodejs
 5edf0744c6702495866ec7773ec66abd radiation_pub2/CMakeFiles/radiation_pub2_generate_messages_py
+6d96661a2ad52a4568b983b1fd435fba radiation_pub_new/CMakeFiles/_radiation_pub_new_generate_messages_check_deps_radiation
+f10c722ea191b772c59faa2739aa609e radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_cpp
+f10c722ea191b772c59faa2739aa609e radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_eus
+f10c722ea191b772c59faa2739aa609e radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_lisp
+f10c722ea191b772c59faa2739aa609e radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_nodejs
+f10c722ea191b772c59faa2739aa609e radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages_py
