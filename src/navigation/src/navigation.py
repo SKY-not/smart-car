@@ -6,6 +6,8 @@ import math
 from std_msgs.msg import Float64MultiArray
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 import actionlib
+import numpy as np
+from scipy.optimize import least_squares
 
 key_points = 3
 id = 0
@@ -26,6 +28,27 @@ def radiation_sub(msg_s):
 
 def dist_sqr(x1, y1, x2, y2):
     return (x1 - x2) ** 2 + (y1 - y2) ** 2
+
+# 定义残差函数
+def residual(params, points, measurements, epsilon=1e-6):
+    x1, y1, k1 = params
+    predicted = []
+    for (x, y) in points:
+        # 计算辐射源贡献
+        dist_sq1 = (x - x1)**2 + (y - y1)**2 + epsilon
+        I_pred = k1 / dist_sq1
+        predicted.append(I_pred)
+    return np.array(predicted) - np.array(measurements)
+
+# 初始化猜测（需合理策略，见下文）
+def initial_guess(points, measurements):
+    # 假设第一个辐射源靠近最大测量值点
+    max_idx = np.argmax(measurements)
+    x_guess1, y_guess1 = points[max_idx]
+    k_guess1 = measurements[max_idx]
+    
+    return [x_guess1, y_guess1, k_guess1]
+
 
 def get_rad_xy():
     global x_rad, y_rad, rad, x_real, y_real
@@ -71,6 +94,10 @@ def main():
         rospy.loginfo("%d!", i)
 
     get_rad_xy()
+
+    # 输出辐射源位置
+    with open("/home/kiwi/SmartCar/smart-car/rad_info.txt", "w") as fout:
+        fout.write(f"{x_rad} {y_rad}\n")
 
     with open("/home/ucar/ucar_ws/rad_info.txt", "w") as fout:
         fout.write(f"{x_rad} {y_rad}\n")

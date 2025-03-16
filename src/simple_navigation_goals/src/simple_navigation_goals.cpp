@@ -86,7 +86,13 @@ int main(int argc, char** argv){
 
     get_rad_xy();
 
+    /*
     FILE *fout=fopen("/home/ucar/ucar_ws/rad_info.txt","w");
+    fprintf(fout,"%lf %lf\n",x_rad,y_rad);
+    fclose(fout);
+    */
+    
+    FILE *fout=fopen("/home/kiwi/SmartCar/smart-car/rad_info.txt","w");
     fprintf(fout,"%lf %lf\n",x_rad,y_rad);
     fclose(fout);
 
