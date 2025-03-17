@@ -1,2 +1,2 @@
-0.000000 -5.700000
-from simple_navigation_goals.cpp
+2.741177338779363 -0.120571454830282
+from navigation2.py

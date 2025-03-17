@@ -49,7 +49,7 @@ def initial_guess(points, measurements):
     
     return [x_guess1, y_guess1, k_guess1]
 
-#'''
+
 def get_rad_xy():
     global x_rad, y_rad, rad, x_real, y_real
     ans = 100.0
@@ -64,9 +64,9 @@ def get_rad_xy():
                 ans = abs(t1 - t2)
                 x_rad = i_val
                 y_rad = j_val
-#'''
-'''
-def get_rad_xy():
+
+
+def get_rad_xy2():
     global x_rad, y_rad, rad, x_real, y_real
     points = [(x_real[i], y_real[i]) for i in range(key_points)]
     measurements = [rad[i] for i in range(key_points)]
@@ -79,7 +79,7 @@ def get_rad_xy():
         max_nfev=1000   # 最大迭代次数
     )
     x_rad, y_rad, k_rad = result.x
-'''
+
 # 输出调试信息
 def meow(str):
     with open("/home/kiwi/SmartCar/smart-car/debug.txt", "w") as fout:
@@ -118,7 +118,7 @@ def main():
         ac.wait_for_result()
         meow("finished goal")
         id = i
-        # rospy.spin()
+        rospy.spin_once() # 这里应该是使用spin_once()函数，但是rospy中没有spin_once()函数，所以需要考虑其他实现方式
         #msg2 = rospy.wait_for_message('/receiver', receiver_data, timeout=None)
         rospy.loginfo("%d!", i)
 

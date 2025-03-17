@@ -54,6 +54,8 @@ CMAKE_BINARY_DIR = /home/kiwi/SmartCar/smart-car/build
 include navigation/CMakeFiles/run_navigation.dir/progress.make
 
 navigation/CMakeFiles/run_navigation: /home/kiwi/SmartCar/smart-car/src/navigation/src/navigation.py
+navigation/CMakeFiles/run_navigation: /home/kiwi/SmartCar/smart-car/src/navigation/DEPENDs
+navigation/CMakeFiles/run_navigation: /home/kiwi/SmartCar/smart-car/src/navigation/src/navigation2.py
 	cd /home/kiwi/SmartCar/smart-car/build/navigation && python3 /home/kiwi/SmartCar/smart-car/src/navigation/src/navigation.py
 
 run_navigation: navigation/CMakeFiles/run_navigation
