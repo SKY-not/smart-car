@@ -8,17 +8,6 @@ import actionlib
 import numpy as np
 from scipy.optimize import least_squares
 
-key_points = 20
-id = 0
-rad = [0.0] * key_points
-x_rad, y_rad = 0.0, 0.0
-x = np.linspace(0.0, 3.0, key_points)
-y = np.zeros_like(x)
-# y = np.tile([0.5, -0.5], key_points/2)
-x_real = [0.0] * key_points
-y_real = [0.0] * key_points
-flag = [False] * key_points
-
 ## 调试信息输出
 # 输出调试信息
 def meow(str):
@@ -63,57 +52,66 @@ def initial_guess(points, measurements):
 def dist_sqr(x1, y1, x2, y2):
     return (x1 - x2) ** 2 + (y1 - y2) ** 2
 
-def get_rad_xy():
-    global x_rad, y_rad, rad, x_real, y_real
-    ans = 100.0
-    for i in range(0, 60):
-        i_val = i * 0.1
-        for j in range(-60, 0):
-            j_val = j * 0.1
-            t1 = (rad[2] - rad[0]) / (rad[1] - rad[0])
-            t2 = (1 / dist_sqr(x_real[2], y_real[2], i_val, j_val) - 1 / dist_sqr(x_real[0], y_real[0], i_val, j_val)) / \
-                 (1 / dist_sqr(x_real[1], y_real[1], i_val, j_val) - 1 / dist_sqr(x_real[0], y_real[0], i_val, j_val))
-            if ans > abs(t1 - t2):
-                ans = abs(t1 - t2)
-                x_rad = i_val
-                y_rad = j_val
-
-
-def get_rad_xy2():
-    global x_rad, y_rad, rad , x_real, y_real
-    points = [(x_real[i], y_real[i]) for i in range(key_points)]
-    measurements = [rad[i] for i in range(key_points)]
-    initial_params = initial_guess(points, measurements)
-    result = least_squares(
-        residual, 
-        initial_params, 
-        args=(points, measurements),
-        method='lm',  # Levenberg-Marquardt算法
-        max_nfev=1000   # 最大迭代次数
-    )
-    x_rad, y_rad, k_rad = result.x
-
-    save_data_to_txt(points, measurements, "/home/kiwi/SmartCar/smart-car/data_output.txt")
-
-
-
-# 获取辐射强度信息
-def radiation_sub(msg):
-    global id, rad, x_real, y_real, flag
-    #global id, rad , flag
-    if not flag[id]:
-        rad[id] = msg.data[0]
-        x_real[id] = msg.data[1]
-        y_real[id] = msg.data[2]
-
-
-
 class navigation_node:
+    key_points = 20
+    id = 0
+    rad = [0.0] * key_points
+    x_rad, y_rad = 0.0, 0.0
+    x = np.linspace(0.0, 3.0, key_points)
+    y = np.zeros_like(x)
+    # y = np.tile([0.5, -0.5], key_points/2)
+    x_real = [0.0] * key_points
+    y_real = [0.0] * key_points
+    flag = [False] * key_points
+
+
+    def get_rad_xy(self):
+        # global x_rad, y_rad, rad, x_real, y_real
+        rad = self.rad
+        x_real = self.x_real
+        y_real = self.y_real
+        ans = 100.0
+        for i in range(0, 60):
+            i_val = i * 0.1
+            for j in range(-60, 0):
+                j_val = j * 0.1
+                t1 = (rad[2] - rad[0]) / (rad[1] - rad[0])
+                t2 = (1 / dist_sqr(x_real[2], y_real[2], i_val, j_val) - 1 / dist_sqr(x_real[0], y_real[0], i_val, j_val)) / \
+                    (1 / dist_sqr(x_real[1], y_real[1], i_val, j_val) - 1 / dist_sqr(x_real[0], y_real[0], i_val, j_val))
+                if ans > abs(t1 - t2):
+                    ans = abs(t1 - t2)
+                    self.x_rad = i_val
+                    self.y_rad = j_val
+
+
+    def get_rad_xy2(self):
+        #global x_rad, y_rad, rad , x_real, y_real
+        points = [(self.x_real[i], self.y_real[i]) for i in range(self.key_points)]
+        measurements = [self.rad[i] for i in range(self.key_points)]
+        initial_params = initial_guess(points, measurements)
+        result = least_squares(
+            residual, 
+            initial_params, 
+            args=(points, measurements),
+            method='lm',  # Levenberg-Marquardt算法
+            max_nfev=1000   # 最大迭代次数
+        )
+        self.x_rad, self.y_rad, k_rad = result.x
+        save_data_to_txt(points, measurements, "/home/kiwi/SmartCar/smart-car/data_output.txt")
+
+
+        # 获取辐射强度信息
+    def radiation_sub(self, msg):
+        # global id, rad, x_real, y_real, flag
+        if not self.flag[self.id]:
+            self.rad[self.id] = msg.data[0]
+            self.x_real[self.id] = msg.data[1]
+            self.y_real[self.id] = msg.data[2]
 
     def __init__(self):
         rospy.init_node('navigation_node')
         meow("navigation2.py start")
-        self.sub = rospy.Subscriber('radiation', Float64MultiArray, radiation_sub)
+        self.sub = rospy.Subscriber('radiation', Float64MultiArray, self.radiation_sub)
         meow("navigation2.py subscribe radiation")
         self.ac = actionlib.SimpleActionClient('move_base', MoveBaseAction)
         meow("navigation2.py action client")
@@ -132,32 +130,33 @@ class navigation_node:
         self.goal.target_pose.pose.orientation.w = 1.0
         meow("navigation2.py move base goal init")
 
-        for i in range(key_points):
+        for i in range(self.key_points):
             rospy.loginfo("%d?", i)
-            self.goal.target_pose.pose.position.x = x[i]
-            self.goal.target_pose.pose.position.y = y[i]
+            self.goal.target_pose.pose.position.x = self.x[i]
+            self.goal.target_pose.pose.position.y = self.y[i]
             self.ac.send_goal(self.goal)
             self.ac.wait_for_result()
-            id = i
-            data = rospy.wait_for_message("radiation", Float64MultiArray, timeout=None)
-            meow("navigation2.py wait for radiation, try 2 run radiation_sub")
-            radiation_sub(data.radiation)
-            meow("navigation2.py run radiation_sub successfully")
-            # 现在是这里爆炸 无法运行radiation_sub 2025.3.17
-            #rospy.loginfo("has reached point %d %f %f ", i, x[i],        
+            self.id = i
+            msg = rospy.wait_for_message('radiation', Float64MultiArray, timeout=None)
+            meow("navigation2.py waits for radiation, try running radiation_sub")
+            self.radiation_sub(msg)
+            meow("navigation2.py runs radiation_sub successfully")
+            #rospy.loginfo("has reached point %d %f %f ", i, x[i], y[i])
             rospy.loginfo("%d!", i)
 
-        #get_rad_xy()
-        get_rad_xy2()
+        meow("try 2 cacl radiation source")
+        #self.get_rad_xy()
+        self.get_rad_xy2()
+        meow("navigation2.py get radiation source")
 
         # 输出辐射源的坐标
         with open("/home/kiwi/SmartCar/smart-car/rad_info.txt", "w") as fout:
-            fout.write(f"{x_rad} {y_rad}\n")
+            fout.write(f"{self.x_rad} {self.y_rad}\n")
             fout.write("from navigation2.py")
 
-        self.target_pose.pose.position.x = x_rad
-        self.target_pose.pose.position.y = y_rad
-        rospy.loginfo(f"meow {x_rad} {y_rad}")
+        self.target_pose.pose.position.x = self.x_rad
+        self.target_pose.pose.position.y = self.y_rad
+        rospy.loginfo(f"meow {self.x_rad} {self.y_rad}")
         self.ac.send_goal(self.goal)
         self.ac.wait_for_result()
 

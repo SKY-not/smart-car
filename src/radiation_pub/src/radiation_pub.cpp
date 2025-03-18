@@ -10,7 +10,7 @@ const double x_rad = 0;
 const double y_rad = -5.7;
 const double k = 20;
 
-// 发布器和订阅器
+// 订阅器和发布器
 ros::Subscriber sub;
 ros::Publisher pub;
 
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     ros::NodeHandle nh;
     // 实例化订阅者对象,参数1是话题名(要保证和发布方的话题一致)
     // 参数2是buffer空间大小，参数3是回调函数
-    sub=nh.subscribe<nav_msgs::Odometry>("odom",200,radiation_pub);
+    sub = nh.subscribe<nav_msgs::Odometry>("odom",200,radiation_pub);
     // 实例化发布者对象，参数是话题名，buffer大小
     pub = nh.advertise<std_msgs::Float64MultiArray>("radiation",20);
     // 进入自循环，调用所有的回调函数（当接收到消息）
