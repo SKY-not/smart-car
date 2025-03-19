@@ -1169,6 +1169,19 @@ move_base_msgs_generate_messages_py/fast:
 .PHONY : move_base_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named run_navigation2
+
+# Build rule for target.
+run_navigation2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_navigation2
+.PHONY : run_navigation2
+
+# fast build rule for target.
+run_navigation2/fast:
+	$(MAKE) -f navigation2/CMakeFiles/run_navigation2.dir/build.make navigation2/CMakeFiles/run_navigation2.dir/build
+.PHONY : run_navigation2/fast
+
+#=============================================================================
 # Target rules for targets named radiation_pub_new_generate_messages
 
 # Build rule for target.
@@ -1518,6 +1531,7 @@ help:
 	@echo "... move_base_msgs_generate_messages_cpp"
 	@echo "... move_base_msgs_generate_messages_lisp"
 	@echo "... move_base_msgs_generate_messages_py"
+	@echo "... run_navigation2"
 	@echo "... radiation_pub_new_generate_messages"
 	@echo "... _radiation_pub_new_generate_messages_check_deps_radiation"
 	@echo "... radiation_pub_new_gennodejs"

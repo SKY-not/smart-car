@@ -59,6 +59,7 @@ all: gazebo_train/all
 all: radiation_pub/all
 all: radiation_pub2/all
 all: navigation/all
+all: navigation2/all
 all: radiation_pub_new/all
 all: gazebo_map_cartographer/all
 all: gazebo_map_gmapping/all
@@ -75,6 +76,7 @@ preinstall: gazebo_train/preinstall
 preinstall: radiation_pub/preinstall
 preinstall: radiation_pub2/preinstall
 preinstall: navigation/preinstall
+preinstall: navigation2/preinstall
 preinstall: radiation_pub_new/preinstall
 preinstall: gazebo_map_cartographer/preinstall
 preinstall: gazebo_map_gmapping/preinstall
@@ -96,6 +98,7 @@ clean: gazebo_train/clean
 clean: radiation_pub/clean
 clean: radiation_pub2/clean
 clean: navigation/clean
+clean: navigation2/clean
 clean: radiation_pub_new/clean
 clean: gazebo_map_cartographer/clean
 clean: gazebo_map_gmapping/clean
@@ -283,6 +286,24 @@ navigation/clean: navigation/CMakeFiles/move_base_msgs_generate_messages_lisp.di
 navigation/clean: navigation/CMakeFiles/move_base_msgs_generate_messages_py.dir/clean
 
 .PHONY : navigation/clean
+
+#=============================================================================
+# Directory level rules for directory navigation2
+
+# Recursive "all" directory target.
+navigation2/all:
+
+.PHONY : navigation2/all
+
+# Recursive "preinstall" directory target.
+navigation2/preinstall:
+
+.PHONY : navigation2/preinstall
+
+# Recursive "clean" directory target.
+navigation2/clean: navigation2/CMakeFiles/run_navigation2.dir/clean
+
+.PHONY : navigation2/clean
 
 #=============================================================================
 # Directory level rules for directory radiation_pub
@@ -2550,6 +2571,33 @@ move_base_msgs_generate_messages_py: navigation/CMakeFiles/move_base_msgs_genera
 navigation/CMakeFiles/move_base_msgs_generate_messages_py.dir/clean:
 	$(MAKE) -f navigation/CMakeFiles/move_base_msgs_generate_messages_py.dir/build.make navigation/CMakeFiles/move_base_msgs_generate_messages_py.dir/clean
 .PHONY : navigation/CMakeFiles/move_base_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target navigation2/CMakeFiles/run_navigation2.dir
+
+# All Build rule for target.
+navigation2/CMakeFiles/run_navigation2.dir/all:
+	$(MAKE) -f navigation2/CMakeFiles/run_navigation2.dir/build.make navigation2/CMakeFiles/run_navigation2.dir/depend
+	$(MAKE) -f navigation2/CMakeFiles/run_navigation2.dir/build.make navigation2/CMakeFiles/run_navigation2.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/SmartCar/smart-car/build/CMakeFiles --progress-num= "Built target run_navigation2"
+.PHONY : navigation2/CMakeFiles/run_navigation2.dir/all
+
+# Build rule for subdir invocation for target.
+navigation2/CMakeFiles/run_navigation2.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/SmartCar/smart-car/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 navigation2/CMakeFiles/run_navigation2.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/SmartCar/smart-car/build/CMakeFiles 0
+.PHONY : navigation2/CMakeFiles/run_navigation2.dir/rule
+
+# Convenience name for target.
+run_navigation2: navigation2/CMakeFiles/run_navigation2.dir/rule
+
+.PHONY : run_navigation2
+
+# clean rule for target.
+navigation2/CMakeFiles/run_navigation2.dir/clean:
+	$(MAKE) -f navigation2/CMakeFiles/run_navigation2.dir/build.make navigation2/CMakeFiles/run_navigation2.dir/clean
+.PHONY : navigation2/CMakeFiles/run_navigation2.dir/clean
 
 #=============================================================================
 # Target rules for target radiation_pub_new/CMakeFiles/radiation_pub_new_generate_messages.dir

@@ -519,6 +519,12 @@ move_base_msgs_DIR:PATH=/opt/ros/noetic/share/move_base_msgs/cmake
 nav_msgs_DIR:PATH=/opt/ros/noetic/share/nav_msgs/cmake
 
 //Value Computed by CMake
+navigation2_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/navigation2
+
+//Value Computed by CMake
+navigation2_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/navigation2
+
+//Value Computed by CMake
 navigation_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/navigation
 
 //Value Computed by CMake
@@ -732,7 +738,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=15
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=16
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

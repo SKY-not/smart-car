@@ -113,13 +113,13 @@ class navigation_node:
 
     def __init__(self):
         rospy.init_node('navigation_node')
-        meow("navigation2.py start")
+        meow("navigation1.py start")
         self.sub = rospy.Subscriber('radiation', Float64MultiArray, self.radiation_sub)
-        meow("navigation2.py subscribe radiation")
+        meow("navigation1.py subscribe radiation")
         self.ac = actionlib.SimpleActionClient('move_base', MoveBaseAction)
-        meow("navigation2.py action client")
+        meow("navigation1.py action client")
         self.goal = MoveBaseGoal()
-        meow("navigation2.py move base goal")
+        meow("navigation1.py move base goal")
 
         while not self.ac.wait_for_server(rospy.Duration.from_sec(5.0)):
             rospy.loginfo("Waiting for the move_base action server to come up")
@@ -131,7 +131,7 @@ class navigation_node:
         self.goal.target_pose.pose.orientation.y = 0.0
         self.goal.target_pose.pose.orientation.z = 0.0
         self.goal.target_pose.pose.orientation.w = 1.0
-        meow("navigation2.py move base goal init")
+        meow("navigation1.py move base goal init")
 
         for i in range(self.key_points):
             rospy.loginfo("%d?", i)
@@ -141,21 +141,21 @@ class navigation_node:
             self.ac.wait_for_result()
             self.id = i
             msg = rospy.wait_for_message('radiation', Float64MultiArray, timeout=None)
-            meow("navigation2.py waits for radiation, try running radiation_sub")
+            meow("navigation1.py waits for radiation, try running radiation_sub")
             self.radiation_sub(msg)
-            meow("navigation2.py runs radiation_sub successfully")
+            meow("navigation1.py runs radiation_sub successfully")
             #rospy.loginfo("has reached point %d %f %f ", i, x[i], y[i])
             rospy.loginfo("%d!", i)
 
         meow("try 2 cacl radiation source")
         #self.get_rad_xy()
         self.get_rad_xy2()
-        meow("navigation2.py get radiation source")
+        meow("navigation1.py get radiation source")
 
         # 输出辐射源的坐标
         with open("/home/kiwi/SmartCar/smart-car/rad_info.txt", "w") as fout:
             fout.write(f"{self.x_rad} {self.y_rad}\n")
-            fout.write("from navigation2.py")
+            fout.write("from navigation1.py")
 
         self.target_pose.pose.position.x = self.x_rad
         self.target_pose.pose.position.y = self.y_rad

@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 import rospy
 from std_msgs.msg import Float64MultiArray
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
@@ -50,18 +46,16 @@ def initial_guess(points, measurements):
     x_guess1, y_guess1 = points[max_idx]
     k_guess1 = measurements[max_idx]
     
-    # 假设第二个辐射源靠近第二大测量值点
-    sorted_idx = np.argsort(measurements)[::-1]
-    x_guess2, y_guess2 = points[sorted_idx[1]]
-    k_guess2 = measurements[sorted_idx[1]]
-    
+    # 对第一个辐射源的位置进行一定程度的平移得到第二个辐射源的位置
+    x_guess2, y_guess2 = x_guess1 + 0.5, y_guess1 + 0.5
+    k_guess2 = measurements[max_idx]
     return [x_guess1, y_guess1, k_guess1, x_guess2, y_guess2, k_guess2]
 
 
 def dist_sqr(x1, y1, x2, y2):
     return (x1 - x2) ** 2 + (y1 - y2) ** 2
 
-class navigation_node:
+class navigation_node2:
     key_points = 30
     id = 0
     rad = [0.0] * key_points
@@ -83,7 +77,7 @@ class navigation_node:
             initial_params, 
             args=(points, measurements),
             method='lm',  # Levenberg-Marquardt算法
-            max_nfev=2000   # 最大迭代次数
+            max_nfev=3000   # 最大迭代次数
         )
         self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2 = result.x
         save_data_to_txt(points, measurements, "/home/kiwi/SmartCar/smart-car/data_output.txt")
@@ -135,7 +129,6 @@ class navigation_node:
             meow("navigation2.py waits for radiation, try running radiation_sub")
             self.radiation_sub(msg)
             meow("navigation2.py runs radiation_sub successfully")
-            #rospy.loginfo("has reached point %d %f %f ", i, x[i], y[i])
             rospy.loginfo("%d!", i)
 
         meow("try 2 cacl radiation source")
@@ -156,6 +149,6 @@ class navigation_node:
 
 if __name__ == '__main__':
     try:
-        navigation_node()
+        navigation_node2()
     except rospy.ROSInterruptException:
         pass

@@ -138,6 +138,14 @@
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/test.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/move_base_msgs_generate_messages_lisp.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/move_base_msgs_generate_messages_py.dir
+/home/kiwi/SmartCar/smart-car/build/navigation2/CMakeFiles/install/strip.dir
+/home/kiwi/SmartCar/smart-car/build/navigation2/CMakeFiles/install/local.dir
+/home/kiwi/SmartCar/smart-car/build/navigation2/CMakeFiles/edit_cache.dir
+/home/kiwi/SmartCar/smart-car/build/navigation2/CMakeFiles/test.dir
+/home/kiwi/SmartCar/smart-car/build/navigation2/CMakeFiles/install.dir
+/home/kiwi/SmartCar/smart-car/build/navigation2/CMakeFiles/list_install_components.dir
+/home/kiwi/SmartCar/smart-car/build/navigation2/CMakeFiles/rebuild_cache.dir
+/home/kiwi/SmartCar/smart-car/build/navigation2/CMakeFiles/run_navigation2.dir
 /home/kiwi/SmartCar/smart-car/build/radiation_pub_new/CMakeFiles/install/strip.dir
 /home/kiwi/SmartCar/smart-car/build/radiation_pub_new/CMakeFiles/install/local.dir
 /home/kiwi/SmartCar/smart-car/build/radiation_pub_new/CMakeFiles/install.dir
