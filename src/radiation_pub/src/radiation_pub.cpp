@@ -6,9 +6,9 @@
 
 // 辐射源位置和系数，仅供调试，初赛测试时会改变
 // 不保证辐射源位置只有一位小数
-const double x_rad = 0;
-const double y_rad = -5.7;
-const double k = 20;
+const double x_rad = 2.3;
+const double y_rad = -3.4;
+const double k = 10;
 
 // 订阅器和发布器
 ros::Subscriber sub;

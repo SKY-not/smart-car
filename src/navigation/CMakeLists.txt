@@ -209,6 +209,7 @@ include_directories(
 add_custom_target(run_navigation
     COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/src/navigation.py
     DEPENDS src/navigation.py
-    DEPENDs src/navigation2.py
+    DEPENDs src/navigation1.py
+    DEPENDS src/navigation2.py
 )
 

@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 import rospy
 from std_msgs.msg import Float64MultiArray
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
@@ -33,13 +30,12 @@ def save_data_to_txt(points, measurements, file_path):
 
 # 定义残差函数
 def residual(params, points, measurements, epsilon=1e-6):
-    x1, y1, k1, x2, y2, k2 = params
+    x1, y1, k1 = params
     predicted = []
     for (x, y) in points:
         # 计算辐射源贡献
         dist_sq1 = (x - x1)**2 + (y - y1)**2 + epsilon
-        dist_sq2 = (x - x2)**2 + (y - y2)**2 + epsilon
-        I_pred = k1 / dist_sq1 + k2 / dist_sq2
+        I_pred = k1 / dist_sq1
         predicted.append(I_pred)
     return np.array(predicted) - np.array(measurements)
 
@@ -50,12 +46,7 @@ def initial_guess(points, measurements):
     x_guess1, y_guess1 = points[max_idx]
     k_guess1 = measurements[max_idx]
     
-    # 假设第二个辐射源靠近第二大测量值点
-    sorted_idx = np.argsort(measurements)[::-1]
-    x_guess2, y_guess2 = points[sorted_idx[1]]
-    k_guess2 = measurements[sorted_idx[1]]
-    
-    return [x_guess1, y_guess1, k_guess1, x_guess2, y_guess2, k_guess2]
+    return [x_guess1, y_guess1, k_guess1]
 
 
 def dist_sqr(x1, y1, x2, y2):
@@ -65,15 +56,35 @@ class navigation_node:
     key_points = 30
     id = 0
     rad = [0.0] * key_points
-    x_rad_1, y_rad_1 = 0.0, 0.0
-    x_rad_2, y_rad_2 = 0.0, 0.0
+    x_rad, y_rad = 0.0, 0.0
     x = np.linspace(0.0, 3.6, key_points)
     y = np.zeros_like(x)
+    # y = np.tile([0.5, -0.5], key_points/2)
     x_real = [0.0] * key_points
     y_real = [0.0] * key_points
     flag = [False] * key_points
 
+
     def get_rad_xy(self):
+        # global x_rad, y_rad, rad, x_real, y_real
+        rad = self.rad
+        x_real = self.x_real
+        y_real = self.y_real
+        ans = 100.0
+        for i in range(0, 60):
+            i_val = i * 0.1
+            for j in range(-60, 0):
+                j_val = j * 0.1
+                t1 = (rad[2] - rad[0]) / (rad[1] - rad[0])
+                t2 = (1 / dist_sqr(x_real[2], y_real[2], i_val, j_val) - 1 / dist_sqr(x_real[0], y_real[0], i_val, j_val)) / \
+                    (1 / dist_sqr(x_real[1], y_real[1], i_val, j_val) - 1 / dist_sqr(x_real[0], y_real[0], i_val, j_val))
+                if ans > abs(t1 - t2):
+                    ans = abs(t1 - t2)
+                    self.x_rad = i_val
+                    self.y_rad = j_val
+
+
+    def get_rad_xy2(self):
         #global x_rad, y_rad, rad , x_real, y_real
         points = [(self.x_real[i], self.y_real[i]) for i in range(self.key_points)]
         measurements = [self.rad[i] for i in range(self.key_points)]
@@ -85,14 +96,12 @@ class navigation_node:
             method='lm',  # Levenberg-Marquardt算法
             max_nfev=2000   # 最大迭代次数
         )
-        self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2 = result.x
+        self.x_rad, self.y_rad, k_rad = result.x
         save_data_to_txt(points, measurements, "/home/kiwi/SmartCar/smart-car/data_output.txt")
 
         # 通过暴力的方式将坐标转换为给定的象限
-        self.x_rad_1 = abs(self.x_rad_1)
-        self.y_rad_1 = abs(self.y_rad_1)
-        self.x_rad_2 = abs(self.x_rad_2)
-        self.y_rad_2 = abs(self.y_rad_2)
+        self.x_rad = abs(self.x_rad)
+        self.y_rad = -abs(self.y_rad)
 
         # 获取辐射强度信息
     def radiation_sub(self, msg):
@@ -139,14 +148,14 @@ class navigation_node:
             rospy.loginfo("%d!", i)
 
         meow("try 2 cacl radiation source")
-        self.get_rad_xy()
+        #self.get_rad_xy()
+        self.get_rad_xy2()
         meow("navigation2.py get radiation source")
 
         # 输出辐射源的坐标
         with open("/home/kiwi/SmartCar/smart-car/rad_info.txt", "w") as fout:
-            fout.write(f"第一个辐射源坐标：{self.x_rad_1} {self.y_rad_1}\n")
-            fout.write(f"第二个辐射源坐标：{self.x_rad_2} {self.y_rad_2}\n")
-            fout.write("from navigation1.py")
+            fout.write(f"{self.x_rad} {self.y_rad}\n")
+            fout.write("from navigation2.py")
 
         self.target_pose.pose.position.x = self.x_rad
         self.target_pose.pose.position.y = self.y_rad
