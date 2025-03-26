@@ -53,7 +53,7 @@ def dist_sqr(x1, y1, x2, y2):
     return (x1 - x2) ** 2 + (y1 - y2) ** 2
 
 class navigation_node:
-    key_points = 30
+    key_points = 10
     id = 0
     rad = [0.0] * key_points
     x_rad, y_rad = 0.0, 0.0
