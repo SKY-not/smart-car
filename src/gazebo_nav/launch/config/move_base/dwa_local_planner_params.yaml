@@ -64,9 +64,9 @@ latch_xy_goal_tolerance: true
 
 DWAPlannerROS:
 # Robot Configuration Parameters - stdr robot
-  acc_lim_x: 0.5
-  acc_lim_y: 0.0
-  acc_lim_th: 0.3
+  acc_lim_x: 0.1
+  acc_lim_y: 0.1
+  acc_lim_th: 0.15
 
 #  max_trans_vel: 0.4#choose slightly less than the base's capability
 #  min_trans_vel: 0.1 #this is the min trans velocity when there is negligible rotational velocity
@@ -77,16 +77,16 @@ DWAPlannerROS:
   trans_stopped_vel: 0.1
   theta_stopped_vel: 0.1
 
-  max_vel_x: 1.2  #  0.8
+  max_vel_x: 1  #  0.8
   min_vel_x: -0.2
-  max_vel_y: 1.2  #   0.2  diff drive robot,don't need set vel_y
+  max_vel_y: 1  #   0.2  diff drive robot,don't need set vel_y
   min_vel_y: -0.2
 
 #  max_rot_vel: 0.5  #choose slightly less than the base's capability
 #  min_rot_vel: 0.1  #this is the min angular velocity when there is negligible translational velocity
 
-  max_vel_theta: 0.6  #choose slightly less than the base's capability
-  min_vel_theta: -0.6  #this is the min angular velocity when there is negligible translational velocity
+  max_vel_theta: 1.6  #choose slightly less than the base's capability
+  min_vel_theta: -1.6  #this is the min angular velocity when there is negligible translational velocity
 
 
 # Goal Tolerance Parameters
@@ -95,7 +95,7 @@ DWAPlannerROS:
   latch_xy_goal_tolerance: true
 
 # Forward Simulation Parameters
-  sim_time: 2.5   # 1.7
+  sim_time: 12   # 1.7
   sim_granularity: 0.005
   vx_samples: 7    # default 3
   vy_samples: 3    # diff drive robot, there is only one sample
@@ -103,9 +103,15 @@ DWAPlannerROS:
   controller_frequency: 5.0
 
 # Trajectory Scoring Parameters
+#   * path_distance_bias:定义控制器与给定路径接近程度.
+#   * goal_distance_bias:定义控制器与局部目标点的接近程度
+#   * occdist_scale:定义控制器躲避障碍物的程度.
+#   * stop_time_buffer:为防止碰撞,机器人必须提前停止的时间长度.
+#   * scaling_speed:启动机器人底盘的速度.
+#   * max_scaling_factor:最大缩放参数.
   path_distance_bias: 24  # 32.0  -weighting for how much it should stick to the global path plan
   goal_distance_bias: 30.0  # 24.0  -wighting for how much it should attempt to reach its goal
-  occdist_scale: 1.0       # 0.01  -weighting for how much the controller should avoid obstacles
+  occdist_scale: 0.02      # 0.01  -weighting for how much the controller should avoid obstacles
   forward_point_distance: 0.125 # 0.325 -how far along to place an additional scoring point
   stop_time_buffer: 0.2     # 0.2   -amount of time a robot must stop in before colliding for a valid traj.
   scaling_speed: 0.20       # 0.25  -absolute velocity at which to start scaling the robot's footprint
@@ -119,7 +125,7 @@ DWAPlannerROS:
   heading_points: 1
 
 # Global Plan Parameters
-  prune_plan: true
+  prune_plan: false  # default false
 
   publish_traj_pc : false
   publish_cost_grid_pc: false

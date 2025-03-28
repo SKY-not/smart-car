@@ -13,6 +13,7 @@
     <rosparam file="$(find gazebo_nav)/launch/config/move_base/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find gazebo_nav)/launch/config/move_base/global_planner_params.yaml" command="load" />
     <rosparam file="$(find gazebo_nav)/launch/config/move_base/dwa_local_planner_params.yaml" command="load" />
+    <!--rosparamrosparam file="$(find gazebo_nav)/launch/config/move_base/dwa1.yaml" command="load" /-->
     <rosparam file="$(find gazebo_nav)/launch/config/move_base/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find gazebo_nav)/launch/config/move_base/global_costmap_params.yaml" command="load" />
   </node>

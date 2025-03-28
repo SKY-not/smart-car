@@ -1,0 +1,23 @@
+<launch>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find nav)/map/result.yaml" output="screen">
+   <param name="frame_id" value="map" />
+  </node>
+  
+  <include file="$(find nav)/launch/config/amcl/amcl_omni.launch" > </include>
+  <!--include file="$(find nav)/launch/config/amcl/amcl_diff.launch" > </include   -->
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS"/>
+
+    <rosparam file="$(find nav)/launch/config/move_base/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find nav)/launch/config/move_base/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find nav)/launch/config/move_base/global_planner_params.yaml" command="load" />
+    <rosparam file="$(find nav)/launch/config/move_base/teb_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find nav)/launch/config/move_base/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find nav)/launch/config/move_base/global_costmap_params.yaml" command="load" />
+  </node>
+
+<node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find nav)/launch/config/rviz/demo.rviz" />
+</launch>
