@@ -1,1 +1,0 @@
-navigation1.py get radiation source

@@ -1,2 +1,0 @@
-0.000000 -5.000000
-from simple_navigation_goals.cpp

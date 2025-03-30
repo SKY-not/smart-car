@@ -1,0 +1,8 @@
+prefix=/home/kiwi/SmartCar/smart-car/install
+
+Name: nav_plus
+Description: Description of nav_plus
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

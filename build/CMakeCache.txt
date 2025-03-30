@@ -549,6 +549,12 @@ nav_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/nav
 nav_msgs_DIR:PATH=/opt/ros/noetic/share/nav_msgs/cmake
 
 //Value Computed by CMake
+nav_plus_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/nav_plus
+
+//Value Computed by CMake
+nav_plus_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/nav_plus
+
+//Value Computed by CMake
 navigation2_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/navigation2
 
 //Value Computed by CMake

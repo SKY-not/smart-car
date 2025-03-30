@@ -11,8 +11,8 @@ from scipy.optimize import least_squares
 # 输出调试信息
 def meow(str):
     rospy.loginfo(str)
-    with open("/home/kiwi/SmartCar/smart-car/debug.txt", "w") as fout:
-        fout.write(str)
+    # with open("/home/kiwi/SmartCar/smart-car/debug.txt", "w") as fout:
+    #     fout.write(str)
 
 # 输出测试点的坐标def save_data_to_txt(points, measurements, file_path):
 def save_data_to_txt(points, measurements, file_path):  
@@ -56,12 +56,12 @@ def dist_sqr(x1, y1, x2, y2):
     return (x1 - x2) ** 2 + (y1 - y2) ** 2
 
 class navigation_node2:
-    key_points = 30
+    key_points = 7
     id = 0
     rad = [0.0] * key_points
     x_rad_1, y_rad_1 = 0.0, 0.0
     x_rad_2, y_rad_2 = 0.0, 0.0
-    x = np.linspace(0.0, 3.6, key_points)
+    x = np.linspace(0.0, 5.5, key_points)
     y = np.zeros_like(x)
     x_real = [0.0] * key_points
     y_real = [0.0] * key_points
@@ -77,20 +77,33 @@ class navigation_node2:
             initial_params, 
             args=(points, measurements),
             method='lm',  # Levenberg-Marquardt算法
-            max_nfev=3000   # 最大迭代次数
+            max_nfev=2000   # 最大迭代次数
         )
         self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2 = result.x
-        save_data_to_txt(points, measurements, "/home/kiwi/SmartCar/smart-car/data_output.txt")
-
+        
         # 通过暴力的方式将坐标转换为给定的象限
         self.x_rad_1 = abs(self.x_rad_1)
-        self.y_rad_1 = abs(self.y_rad_1)
+        self.y_rad_1 = -abs(self.y_rad_1)
         self.x_rad_2 = abs(self.x_rad_2)
-        self.y_rad_2 = abs(self.y_rad_2)
+        self.y_rad_2 = -abs(self.y_rad_2)
+
+        # 将第1次计算的结果作为初始值，进行第2次计算
+        result = least_squares(
+            residual, 
+            [self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2], 
+            args=(points, measurements),
+            method='lm',  # Levenberg-Marquardt算法
+            max_nfev=4000   # 最大迭代次数
+        )
+
+        self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2 = result.x
+        self.x_rad_1 = abs(self.x_rad_1)
+        self.y_rad_1 = -abs(self.y_rad_1)
+        self.x_rad_2 = abs(self.x_rad_2)
+        self.y_rad_2 = -abs(self.y_rad_2)
 
         # 获取辐射强度信息
     def radiation_sub(self, msg):
-        # global id, rad, x_real, y_real, flag
         if not self.flag[self.id]:
             self.rad[self.id] = msg.data[0]
             self.x_real[self.id] = msg.data[1]
@@ -99,8 +112,8 @@ class navigation_node2:
     def __init__(self):
         rospy.init_node('navigation_node')
         meow("navigation2.py start")
-        self.sub = rospy.Subscriber('radiation', Float64MultiArray, self.radiation_sub)
-        meow("navigation2.py subscribe radiation")
+        self.sub = rospy.Subscriber('radiation2', Float64MultiArray, self.radiation_sub)
+        meow("navigation2.py subscribe radiation2")
         self.ac = actionlib.SimpleActionClient('move_base', MoveBaseAction)
         meow("navigation2.py action client")
         self.goal = MoveBaseGoal()
@@ -125,8 +138,8 @@ class navigation_node2:
             self.ac.send_goal(self.goal)
             self.ac.wait_for_result()
             self.id = i
-            msg = rospy.wait_for_message('radiation', Float64MultiArray, timeout=None)
-            meow("navigation2.py waits for radiation, try running radiation_sub")
+            msg = rospy.wait_for_message('radiation2', Float64MultiArray, timeout=None)
+            meow("navigation2.py waits for radiation2, try running radiation_sub")
             self.radiation_sub(msg)
             meow("navigation2.py runs radiation_sub successfully")
             rospy.loginfo("%d!", i)
@@ -139,13 +152,32 @@ class navigation_node2:
         with open("/home/kiwi/SmartCar/smart-car/rad_info.txt", "w") as fout:
             fout.write(f"第一个辐射源坐标：{self.x_rad_1} {self.y_rad_1}\n")
             fout.write(f"第二个辐射源坐标：{self.x_rad_2} {self.y_rad_2}\n")
-            fout.write("from navigation1.py")
 
-        self.target_pose.pose.position.x = self.x_rad
-        self.target_pose.pose.position.y = self.y_rad
-        rospy.loginfo(f"meow {self.x_rad} {self.y_rad}")
+        # 移动到辐射源1的位置
+        self.goal.target_pose.pose.position.x = self.x_rad_1
+        self.goal.target_pose.pose.position.y = self.y_rad_1
+        rospy.loginfo(f"meow {self.x_rad_1} {self.y_rad_1}")
         self.ac.send_goal(self.goal)
         self.ac.wait_for_result()
+        meow("navigation2.py move to first radiation source")
+
+        # 移动到辐射源2的位置
+        self.goal.target_pose.pose.position.x = self.x_rad_2
+        self.goal.target_pose.pose.position.y = self.y_rad_2
+        rospy.loginfo(f"meow {self.x_rad_2} {self.y_rad_2}")
+        self.ac.send_goal(self.goal)
+        self.ac.wait_for_result()
+        meow("navigation2.py move to second radiation source")
+
+        # 移动到家的位置
+        self.goal.target_pose.pose.position.x = 0.0
+        self.goal.target_pose.pose.position.y = 0.0
+        rospy.loginfo(f"meow {0.0} {0.0}")
+        self.ac.send_goal(self.goal)
+        self.ac.wait_for_result()
+        meow("navigation2.py move to home")
+
+        meow("navigation2.py end")
 
 if __name__ == '__main__':
     try:
