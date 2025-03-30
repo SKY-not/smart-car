@@ -64,9 +64,6 @@ all: gazebo_map_cartographer/all
 all: gazebo_map_gmapping/all
 all: gazebo_nav/all
 all: nav/all
-all: nav_plus/all
-all: simple_navigation_goals/all
-all: simple_navigation_goals2/all
 
 .PHONY : all
 
@@ -82,9 +79,6 @@ preinstall: gazebo_map_cartographer/preinstall
 preinstall: gazebo_map_gmapping/preinstall
 preinstall: gazebo_nav/preinstall
 preinstall: nav/preinstall
-preinstall: nav_plus/preinstall
-preinstall: simple_navigation_goals/preinstall
-preinstall: simple_navigation_goals2/preinstall
 
 .PHONY : preinstall
 
@@ -105,9 +99,6 @@ clean: gazebo_map_cartographer/clean
 clean: gazebo_map_gmapping/clean
 clean: gazebo_nav/clean
 clean: nav/clean
-clean: nav_plus/clean
-clean: simple_navigation_goals/clean
-clean: simple_navigation_goals2/clean
 
 .PHONY : clean
 
@@ -308,24 +299,6 @@ nav/clean: nav/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/clean
 .PHONY : nav/clean
 
 #=============================================================================
-# Directory level rules for directory nav_plus
-
-# Recursive "all" directory target.
-nav_plus/all:
-
-.PHONY : nav_plus/all
-
-# Recursive "preinstall" directory target.
-nav_plus/preinstall:
-
-.PHONY : nav_plus/preinstall
-
-# Recursive "clean" directory target.
-nav_plus/clean:
-
-.PHONY : nav_plus/clean
-
-#=============================================================================
 # Directory level rules for directory navigation
 
 # Recursive "all" directory target.
@@ -462,42 +435,6 @@ radiation_pub2/clean: radiation_pub2/CMakeFiles/radiation_pub2_generate_messages
 radiation_pub2/clean: radiation_pub2/CMakeFiles/radiation_pub2.dir/clean
 
 .PHONY : radiation_pub2/clean
-
-#=============================================================================
-# Directory level rules for directory simple_navigation_goals
-
-# Recursive "all" directory target.
-simple_navigation_goals/all: simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/all
-
-.PHONY : simple_navigation_goals/all
-
-# Recursive "preinstall" directory target.
-simple_navigation_goals/preinstall:
-
-.PHONY : simple_navigation_goals/preinstall
-
-# Recursive "clean" directory target.
-simple_navigation_goals/clean: simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/clean
-
-.PHONY : simple_navigation_goals/clean
-
-#=============================================================================
-# Directory level rules for directory simple_navigation_goals2
-
-# Recursive "all" directory target.
-simple_navigation_goals2/all: simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/all
-
-.PHONY : simple_navigation_goals2/all
-
-# Recursive "preinstall" directory target.
-simple_navigation_goals2/preinstall:
-
-.PHONY : simple_navigation_goals2/preinstall
-
-# Recursive "clean" directory target.
-simple_navigation_goals2/clean: simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/clean
-
-.PHONY : simple_navigation_goals2/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir
@@ -3524,60 +3461,6 @@ tf2_msgs_generate_messages_nodejs: nav/CMakeFiles/tf2_msgs_generate_messages_nod
 nav/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/clean:
 	$(MAKE) -f nav/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make nav/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/clean
 .PHONY : nav/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/clean
-
-#=============================================================================
-# Target rules for target simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir
-
-# All Build rule for target.
-simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/all:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/build.make simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/depend
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/build.make simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/SmartCar/smart-car/build/CMakeFiles --progress-num=27,28 "Built target simple_navigation_goals"
-.PHONY : simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/all
-
-# Build rule for subdir invocation for target.
-simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/SmartCar/smart-car/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/SmartCar/smart-car/build/CMakeFiles 0
-.PHONY : simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/rule
-
-# Convenience name for target.
-simple_navigation_goals: simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/rule
-
-.PHONY : simple_navigation_goals
-
-# clean rule for target.
-simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/clean:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/build.make simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/clean
-.PHONY : simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/clean
-
-#=============================================================================
-# Target rules for target simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir
-
-# All Build rule for target.
-simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/all:
-	$(MAKE) -f simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/build.make simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/depend
-	$(MAKE) -f simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/build.make simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/SmartCar/smart-car/build/CMakeFiles --progress-num=29,30 "Built target simple_navigation_goals2"
-.PHONY : simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/all
-
-# Build rule for subdir invocation for target.
-simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/SmartCar/smart-car/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/SmartCar/smart-car/build/CMakeFiles 0
-.PHONY : simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/rule
-
-# Convenience name for target.
-simple_navigation_goals2: simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/rule
-
-.PHONY : simple_navigation_goals2
-
-# clean rule for target.
-simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/clean:
-	$(MAKE) -f simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/build.make simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/clean
-.PHONY : simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

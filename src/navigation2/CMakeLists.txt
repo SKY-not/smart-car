@@ -206,7 +206,6 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 add_custom_target(run_navigation2
-    COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/src/navigation.py
-    DEPENDS src/navigation.py
-    DEPENDs src/navigation2.py
+    COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/src/navigation2.py
+    DEPENDS src/navigation2.py
 )

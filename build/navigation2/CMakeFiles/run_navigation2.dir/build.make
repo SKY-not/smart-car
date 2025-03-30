@@ -53,10 +53,8 @@ CMAKE_BINARY_DIR = /home/kiwi/SmartCar/smart-car/build
 # Include the progress variables for this target.
 include navigation2/CMakeFiles/run_navigation2.dir/progress.make
 
-navigation2/CMakeFiles/run_navigation2: /home/kiwi/SmartCar/smart-car/src/navigation2/src/navigation.py
-navigation2/CMakeFiles/run_navigation2: /home/kiwi/SmartCar/smart-car/src/navigation2/DEPENDs
 navigation2/CMakeFiles/run_navigation2: /home/kiwi/SmartCar/smart-car/src/navigation2/src/navigation2.py
-	cd /home/kiwi/SmartCar/smart-car/build/navigation2 && python3 /home/kiwi/SmartCar/smart-car/src/navigation2/src/navigation.py
+	cd /home/kiwi/SmartCar/smart-car/build/navigation2 && python3 /home/kiwi/SmartCar/smart-car/src/navigation2/src/navigation2.py
 
 run_navigation2: navigation2/CMakeFiles/run_navigation2
 run_navigation2: navigation2/CMakeFiles/run_navigation2.dir/build.make

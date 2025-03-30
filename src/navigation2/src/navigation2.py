@@ -56,12 +56,12 @@ def dist_sqr(x1, y1, x2, y2):
     return (x1 - x2) ** 2 + (y1 - y2) ** 2
 
 class navigation_node2:
-    key_points = 7
+    key_points = 8
     id = 0
     rad = [0.0] * key_points
     x_rad_1, y_rad_1 = 0.0, 0.0
     x_rad_2, y_rad_2 = 0.0, 0.0
-    x = np.linspace(0.0, 5.5, key_points)
+    x = np.linspace(0.0, 5.2, key_points)
     y = np.zeros_like(x)
     x_real = [0.0] * key_points
     y_real = [0.0] * key_points
@@ -77,7 +77,7 @@ class navigation_node2:
             initial_params, 
             args=(points, measurements),
             method='lm',  # Levenberg-Marquardt算法
-            max_nfev=2000   # 最大迭代次数
+            max_nfev=1800   # 最大迭代次数
         )
         self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2 = result.x
         
@@ -93,7 +93,7 @@ class navigation_node2:
             [self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2], 
             args=(points, measurements),
             method='lm',  # Levenberg-Marquardt算法
-            max_nfev=4000   # 最大迭代次数
+            max_nfev=6000   # 最大迭代次数
         )
 
         self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2 = result.x

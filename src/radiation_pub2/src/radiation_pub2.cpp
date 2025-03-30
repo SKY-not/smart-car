@@ -6,10 +6,10 @@
 
 // 辐射源位置和系数，仅供调试，初赛测试时会改变
 // 不保证辐射源位置只有一位小数，也不保证两个辐射源系数相等
-const double x_rad = 0.5;
-const double y_rad = -2;
-const double x_rad2 = 3.0;
-const double y_rad2 = -5.7;
+const double x_rad = 4;
+const double y_rad = -1;
+const double x_rad2 = 1.5;
+const double y_rad2 = -5.8;
 const double k = 20;
 const double k2 = 10;
 

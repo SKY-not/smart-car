@@ -1610,32 +1610,6 @@ tf2_msgs_generate_messages_nodejs/fast:
 	$(MAKE) -f nav/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make nav/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
 .PHONY : tf2_msgs_generate_messages_nodejs/fast
 
-#=============================================================================
-# Target rules for targets named simple_navigation_goals
-
-# Build rule for target.
-simple_navigation_goals: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 simple_navigation_goals
-.PHONY : simple_navigation_goals
-
-# fast build rule for target.
-simple_navigation_goals/fast:
-	$(MAKE) -f simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/build.make simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/build
-.PHONY : simple_navigation_goals/fast
-
-#=============================================================================
-# Target rules for targets named simple_navigation_goals2
-
-# Build rule for target.
-simple_navigation_goals2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 simple_navigation_goals2
-.PHONY : simple_navigation_goals2
-
-# fast build rule for target.
-simple_navigation_goals2/fast:
-	$(MAKE) -f simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/build.make simple_navigation_goals2/CMakeFiles/simple_navigation_goals2.dir/build
-.PHONY : simple_navigation_goals2/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1760,8 +1734,6 @@ help:
 	@echo "... move_base_gencfg"
 	@echo "... topic_tools_generate_messages_py"
 	@echo "... tf2_msgs_generate_messages_nodejs"
-	@echo "... simple_navigation_goals"
-	@echo "... simple_navigation_goals2"
 .PHONY : help
 
 

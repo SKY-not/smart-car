@@ -141,9 +141,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/kiwi/SmartCar/smart-car/build/gazebo_map_gmapping/cmake_install.cmake")
   include("/home/kiwi/SmartCar/smart-car/build/gazebo_nav/cmake_install.cmake")
   include("/home/kiwi/SmartCar/smart-car/build/nav/cmake_install.cmake")
-  include("/home/kiwi/SmartCar/smart-car/build/nav_plus/cmake_install.cmake")
-  include("/home/kiwi/SmartCar/smart-car/build/simple_navigation_goals/cmake_install.cmake")
-  include("/home/kiwi/SmartCar/smart-car/build/simple_navigation_goals2/cmake_install.cmake")
 
 endif()
 

@@ -55,7 +55,7 @@ class navigation_node:
     key_points = 7
     id = 0
     x_rad, y_rad = 0.0, 0.0
-    x = np.linspace(0.0, 5.4, key_points)
+    x = np.linspace(0.0, 5.2, key_points)
     y = np.zeros_like(x)
     rad = [0.0] * key_points
     x_real = [0.0] * key_points
