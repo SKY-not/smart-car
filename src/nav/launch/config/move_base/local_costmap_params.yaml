@@ -1,3 +1,4 @@
+# This file contains the parameters for the local costmap used by move_base.
 local_costmap:
   global_frame: map
   robot_base_frame: base_link

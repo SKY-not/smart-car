@@ -1,3 +1,4 @@
+# This file is used to set global costmap parameters for move_base.
 global_costmap:
   global_frame: map
   robot_base_frame: base_link

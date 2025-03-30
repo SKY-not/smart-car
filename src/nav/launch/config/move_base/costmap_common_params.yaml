@@ -1,3 +1,4 @@
+# This file contains common parameters for the costmap configuration
 robot_radius: 0.135
 transform_tolerance: 1.0
 map_type: costmap
