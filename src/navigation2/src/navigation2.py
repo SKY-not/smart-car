@@ -150,13 +150,13 @@ class navigation_node2:
 
         # 输出辐射源的坐标
         with open("/home/kiwi/SmartCar/smart-car/rad_info.txt", "w") as fout:
-            fout.write(f"第一个辐射源坐标：{self.x_rad_1} {self.y_rad_1}\n")
-            fout.write(f"第二个辐射源坐标：{self.x_rad_2} {self.y_rad_2}\n")
+            fout.write(f"第一个辐射源坐标：{self.x_rad_1:.2f} {self.y_rad_1:.2f}\n")
+            fout.write(f"第二个辐射源坐标：{self.x_rad_2:.2f} {self.y_rad_2:.2f}\n")
 
         # 移动到辐射源1的位置
         self.goal.target_pose.pose.position.x = self.x_rad_1
         self.goal.target_pose.pose.position.y = self.y_rad_1
-        rospy.loginfo(f"meow {self.x_rad_1} {self.y_rad_1}")
+        rospy.loginfo(f"meow {self.x_rad_1:.2f} {self.y_rad_1:.2f}")
         self.ac.send_goal(self.goal)
         self.ac.wait_for_result()
         meow("navigation2.py move to first radiation source")
@@ -164,7 +164,7 @@ class navigation_node2:
         # 移动到辐射源2的位置
         self.goal.target_pose.pose.position.x = self.x_rad_2
         self.goal.target_pose.pose.position.y = self.y_rad_2
-        rospy.loginfo(f"meow {self.x_rad_2} {self.y_rad_2}")
+        rospy.loginfo(f"meow {self.x_rad_2:.2f} {self.y_rad_2:.2f}")
         self.ac.send_goal(self.goal)
         self.ac.wait_for_result()
         meow("navigation2.py move to second radiation source")
@@ -172,7 +172,7 @@ class navigation_node2:
         # 移动到家的位置
         self.goal.target_pose.pose.position.x = 0.0
         self.goal.target_pose.pose.position.y = 0.0
-        rospy.loginfo(f"meow {0.0} {0.0}")
+        rospy.loginfo(f"meow {0.0:.2f} {0.0:.2f}")
         self.ac.send_goal(self.goal)
         self.ac.wait_for_result()
         meow("navigation2.py move to home")
