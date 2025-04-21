@@ -406,6 +406,12 @@ actionlib_msgs_DIR:PATH=/opt/ros/noetic/share/actionlib_msgs/cmake
 //The directory containing a CMake configuration file for amcl.
 amcl_DIR:PATH=/opt/ros/noetic/share/amcl/cmake
 
+//Value Computed by CMake
+build_pgm_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/build_pgm
+
+//Value Computed by CMake
+build_pgm_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/build_pgm
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
 
@@ -620,6 +626,9 @@ roslib_DIR:PATH=/opt/ros/noetic/share/roslib/cmake
 //The directory containing a CMake configuration file for roslz4.
 roslz4_DIR:PATH=/opt/ros/noetic/share/roslz4/cmake
 
+//The directory containing a CMake configuration file for rosmsg.
+rosmsg_DIR:PATH=/opt/ros/noetic/share/rosmsg/cmake
+
 //The directory containing a CMake configuration file for rospack.
 rospack_DIR:PATH=/opt/ros/noetic/share/rospack/cmake
 
@@ -688,6 +697,12 @@ ucar_demo_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/ucar_demo
 
 //Value Computed by CMake
 ucar_demo_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/ucar_demo
+
+//Value Computed by CMake
+ucar_nav_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/ucar_nav
+
+//Value Computed by CMake
+ucar_nav_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/ucar_nav
 
 //Value Computed by CMake
 xf_mic_asr_offline_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/xf_mic_asr_offline
@@ -852,7 +867,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=19
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=21
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

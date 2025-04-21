@@ -120,6 +120,13 @@
 /home/kiwi/SmartCar/smart-car/build/radiation_pub2/CMakeFiles/radiation_pub2_genpy.dir
 /home/kiwi/SmartCar/smart-car/build/radiation_pub2/CMakeFiles/radiation_pub2_generate_messages.dir
 /home/kiwi/SmartCar/smart-car/build/radiation_pub2/CMakeFiles/radiation_pub2.dir
+/home/kiwi/SmartCar/smart-car/build/build_pgm/CMakeFiles/install/strip.dir
+/home/kiwi/SmartCar/smart-car/build/build_pgm/CMakeFiles/install/local.dir
+/home/kiwi/SmartCar/smart-car/build/build_pgm/CMakeFiles/install.dir
+/home/kiwi/SmartCar/smart-car/build/build_pgm/CMakeFiles/list_install_components.dir
+/home/kiwi/SmartCar/smart-car/build/build_pgm/CMakeFiles/rebuild_cache.dir
+/home/kiwi/SmartCar/smart-car/build/build_pgm/CMakeFiles/edit_cache.dir
+/home/kiwi/SmartCar/smart-car/build/build_pgm/CMakeFiles/test.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/install/local.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/install.dir
 /home/kiwi/SmartCar/smart-car/build/navigation/CMakeFiles/list_install_components.dir
@@ -252,6 +259,13 @@
 /home/kiwi/SmartCar/smart-car/build/ucar_demo/CMakeFiles/rebuild_cache.dir
 /home/kiwi/SmartCar/smart-car/build/ucar_demo/CMakeFiles/edit_cache.dir
 /home/kiwi/SmartCar/smart-car/build/ucar_demo/CMakeFiles/test.dir
+/home/kiwi/SmartCar/smart-car/build/ucar_nav/CMakeFiles/install/strip.dir
+/home/kiwi/SmartCar/smart-car/build/ucar_nav/CMakeFiles/install/local.dir
+/home/kiwi/SmartCar/smart-car/build/ucar_nav/CMakeFiles/install.dir
+/home/kiwi/SmartCar/smart-car/build/ucar_nav/CMakeFiles/list_install_components.dir
+/home/kiwi/SmartCar/smart-car/build/ucar_nav/CMakeFiles/rebuild_cache.dir
+/home/kiwi/SmartCar/smart-car/build/ucar_nav/CMakeFiles/edit_cache.dir
+/home/kiwi/SmartCar/smart-car/build/ucar_nav/CMakeFiles/test.dir
 /home/kiwi/SmartCar/smart-car/build/xf_mic_asr_offline/CMakeFiles/install.dir
 /home/kiwi/SmartCar/smart-car/build/xf_mic_asr_offline/CMakeFiles/list_install_components.dir
 /home/kiwi/SmartCar/smart-car/build/xf_mic_asr_offline/CMakeFiles/rebuild_cache.dir
