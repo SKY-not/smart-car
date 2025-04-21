@@ -141,6 +141,11 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/kiwi/SmartCar/smart-car/build/gazebo_map_gmapping/cmake_install.cmake")
   include("/home/kiwi/SmartCar/smart-car/build/gazebo_nav/cmake_install.cmake")
   include("/home/kiwi/SmartCar/smart-car/build/nav/cmake_install.cmake")
+  include("/home/kiwi/SmartCar/smart-car/build/ucar_camera/cmake_install.cmake")
+  include("/home/kiwi/SmartCar/smart-car/build/ucar_controller/cmake_install.cmake")
+  include("/home/kiwi/SmartCar/smart-car/build/ucar_demo/cmake_install.cmake")
+  include("/home/kiwi/SmartCar/smart-car/build/xf_mic_asr_offline/cmake_install.cmake")
+  include("/home/kiwi/SmartCar/smart-car/build/ydlidar/cmake_install.cmake")
 
 endif()
 

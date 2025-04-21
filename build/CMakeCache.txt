@@ -306,6 +306,9 @@ EMPY_EXECUTABLE:FILEPATH=EMPY_EXECUTABLE-NOTFOUND
 //Empy script
 EMPY_SCRIPT:STRING=/usr/lib/python3/dist-packages/em.py
 
+//The directory containing a CMake configuration file for Eigen3.
+Eigen3_DIR:PATH=/usr/lib/cmake/eigen3
+
 //Path to a library.
 GMOCK_LIBRARY:FILEPATH=GMOCK_LIBRARY-NOTFOUND
 
@@ -519,7 +522,7 @@ gtest_hide_internal_symbols:BOOL=OFF
 gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/noetic/lib/libmove_base.so
+lib:FILEPATH=/opt/ros/noetic/lib/libxmlrpcpp.so
 
 //The directory containing a CMake configuration file for map_server.
 map_server_DIR:PATH=/opt/ros/noetic/share/map_server/cmake
@@ -629,6 +632,9 @@ rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/noetic/share/sensor_msgs/cmake
 
+//The directory containing a CMake configuration file for serial.
+serial_DIR:PATH=/opt/ros/noetic/share/serial/cmake
+
 //Value Computed by CMake
 simple_navigation_goals2_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/simple_navigation_goals2
 
@@ -659,11 +665,44 @@ tf2_py_DIR:PATH=/opt/ros/noetic/share/tf2_py/cmake
 //The directory containing a CMake configuration file for tf2_ros.
 tf2_ros_DIR:PATH=/opt/ros/noetic/share/tf2_ros/cmake
 
+//The directory containing a CMake configuration file for tf.
+tf_DIR:PATH=/opt/ros/noetic/share/tf/cmake
+
 //The directory containing a CMake configuration file for topic_tools.
 topic_tools_DIR:PATH=/opt/ros/noetic/share/topic_tools/cmake
 
+//Value Computed by CMake
+ucar_camera_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/ucar_camera
+
+//Value Computed by CMake
+ucar_camera_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/ucar_camera
+
+//Value Computed by CMake
+ucar_controller_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/ucar_controller
+
+//Value Computed by CMake
+ucar_controller_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/ucar_controller
+
+//Value Computed by CMake
+ucar_demo_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/ucar_demo
+
+//Value Computed by CMake
+ucar_demo_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/ucar_demo
+
+//Value Computed by CMake
+xf_mic_asr_offline_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/xf_mic_asr_offline
+
+//Value Computed by CMake
+xf_mic_asr_offline_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/xf_mic_asr_offline
+
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
+
+//Value Computed by CMake
+ydlidar_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/ydlidar
+
+//Value Computed by CMake
+ydlidar_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/ydlidar
 
 
 ########################
@@ -813,7 +852,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=14
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=19
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

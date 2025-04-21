@@ -1,6 +1,6 @@
 set(_CATKIN_CURRENT_PACKAGE "nav")
 set(nav_VERSION "0.0.0")
-set(nav_MAINTAINER "dingw <dingw@todo.todo>")
+set(nav_MAINTAINER "kiwi <wu-qw23@mails.tsinghua.edu.cn>")
 set(nav_PACKAGE_FORMAT "2")
 set(nav_BUILD_DEPENDS "rospy" "roscpp" "sensor_msgs" "std_msgs")
 set(nav_BUILD_EXPORT_DEPENDS "roscpp" "rospy" "sensor_msgs" "std_msgs")

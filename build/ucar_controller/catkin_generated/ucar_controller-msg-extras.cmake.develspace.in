@@ -1,0 +1,2 @@
+set(ucar_controller_MESSAGE_FILES "")
+set(ucar_controller_SERVICE_FILES "/home/kiwi/SmartCar/smart-car/src/ucar_controller/srv/GetMaxVel.srv;/home/kiwi/SmartCar/smart-car/src/ucar_controller/srv/SetMaxVel.srv;/home/kiwi/SmartCar/smart-car/src/ucar_controller/srv/GetSensorTF.srv;/home/kiwi/SmartCar/smart-car/src/ucar_controller/srv/SetSensorTF.srv;/home/kiwi/SmartCar/smart-car/src/ucar_controller/srv/GetBatteryInfo.srv;/home/kiwi/SmartCar/smart-car/src/ucar_controller/srv/SetLEDMode.srv")

@@ -1,0 +1,7 @@
+<launch>
+    <include file="$(find ucar_camera)/launch/ucar_camera.launch"/>
+    <include file="$(find ucar_controller)/launch/tf_server.launch"/>
+    <node pkg="ucar_demo" name="aruco_node" type="aruco_detector.py" output="screen"/>
+    <param name="aruco_app" value="True"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ucar_demo)/config/aruco_test.rviz" required="true" />
+</launch>

@@ -68,7 +68,6 @@ class navigation_node2:
     flag = [False] * key_points
 
     def get_rad_xy(self):
-        #global x_rad, y_rad, rad , x_real, y_real
         points = [(self.x_real[i], self.y_real[i]) for i in range(self.key_points)]
         measurements = [self.rad[i] for i in range(self.key_points)]
         initial_params = initial_guess(points, measurements)
@@ -149,7 +148,7 @@ class navigation_node2:
         meow("navigation2.py get radiation source")
 
         # 输出辐射源的坐标
-        with open("/home/kiwi/SmartCar/smart-car/rad_info.txt", "w") as fout:
+        with open("rad_info.txt", "w") as fout:
             fout.write(f"第一个辐射源坐标：{self.x_rad_1:.2f} {self.y_rad_1:.2f}\n")
             fout.write(f"第二个辐射源坐标：{self.x_rad_2:.2f} {self.y_rad_2:.2f}\n")
 

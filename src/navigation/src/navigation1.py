@@ -74,7 +74,6 @@ class navigation_node:
             max_nfev=2000   # 最大迭代次数
         )
         self.x_rad, self.y_rad, k_rad = result.x
-        save_data_to_txt(points, measurements, "/home/kiwi/SmartCar/smart-car/data_output.txt")
 
         # 通过暴力的方式将坐标转换为给定的象限
         self.x_rad = abs(self.x_rad)
@@ -142,6 +141,12 @@ class navigation_node:
         meow("try 2 cacl radiation source")
         self.get_rad_xy2()
         meow("navigation1.py get radiation source")
+
+        # 输出辐射源的坐标
+        with open("rad_info.txt", "w") as fout:
+            fout.write("废墟中一个辐射源的坐标为：\n")
+            fout.write(f"{self.x_rad:.2f} {self.y_rad:.2f}\n")
+        rospy.loginfo(f"meow {self.x_rad} {self.y_rad}")        
         
         # 前往辐射源坐标
         self.goal.target_pose.pose.position.x = self.x_rad
@@ -150,12 +155,6 @@ class navigation_node:
         self.ac.wait_for_result()
 
         meow("navigation1.py runs radiation_sub successfully")
-
-        # 输出辐射源的坐标
-        with open("/home/kiwi/SmartCar/smart-car/rad_info.txt", "w") as fout:
-            fout.write("废墟中一个辐射源的坐标为：\n")
-            fout.write(f"{self.x_rad:.2f} {self.y_rad:.2f}\n")
-        rospy.loginfo(f"meow {self.x_rad} {self.y_rad}")
 
         # 回到起点
         self.goal.target_pose.pose.position.x = 0.0

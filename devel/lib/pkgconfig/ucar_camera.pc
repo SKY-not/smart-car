@@ -1,0 +1,8 @@
+prefix=/home/kiwi/SmartCar/smart-car/devel
+
+Name: ucar_camera
+Description: Description of ucar_camera
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

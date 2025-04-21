@@ -1,0 +1,8 @@
+prefix=/home/kiwi/SmartCar/smart-car/devel
+
+Name: ucar_controller
+Description: Description of ucar_controller
+Version: 1.1.0
+Cflags: -I/home/kiwi/SmartCar/smart-car/devel/include -I/home/kiwi/SmartCar/smart-car/src/ucar_controller/include
+Libs: -L${prefix}/lib -lucar_controller
+Requires: geometry_msgs roscpp rospy sensor_msgs std_msgs tf
