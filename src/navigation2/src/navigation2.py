@@ -149,6 +149,10 @@ class navigation_node2:
         # 移动到辐射源1的位置
         self.goal.target_pose.pose.position.x = self.x_rad_1
         self.goal.target_pose.pose.position.y = self.y_rad_1
+        self.goal.target_pose.pose.orientation.x = 0.0
+        self.goal.target_pose.pose.orientation.y = 0.0
+        self.goal.target_pose.pose.orientation.z = 0.7071
+        self.goal.target_pose.pose.orientation.w = 0.7071
         rospy.loginfo(f"meow {self.x_rad_1:.2f} {self.y_rad_1:.2f}")
         self.ac.send_goal(self.goal)
         self.ac.wait_for_result()
@@ -157,6 +161,10 @@ class navigation_node2:
         # 移动到辐射源2的位置
         self.goal.target_pose.pose.position.x = self.x_rad_2
         self.goal.target_pose.pose.position.y = self.y_rad_2
+        self.goal.target_pose.pose.orientation.x = 0.0
+        self.goal.target_pose.pose.orientation.y = 0.0
+        self.goal.target_pose.pose.orientation.z = 0.7071
+        self.goal.target_pose.pose.orientation.w = 0.7071
         rospy.loginfo(f"meow {self.x_rad_2:.2f} {self.y_rad_2:.2f}")
         self.ac.send_goal(self.goal)
         self.ac.wait_for_result()
@@ -165,6 +173,10 @@ class navigation_node2:
         # 移动到家的位置
         self.goal.target_pose.pose.position.x = 0.0
         self.goal.target_pose.pose.position.y = 0.0
+        self.goal.target_pose.pose.orientation.x = 0.0
+        self.goal.target_pose.pose.orientation.y = 0.0
+        self.goal.target_pose.pose.orientation.z = 0.0
+        self.goal.target_pose.pose.orientation.w = 1.0
         rospy.loginfo(f"meow {0.0:.2f} {0.0:.2f}")
         self.ac.send_goal(self.goal)
         self.ac.wait_for_result()
