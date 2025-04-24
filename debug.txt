@@ -1,1 +1,1 @@
-navigation2.py move base goal init
+navigation2.py move base goal

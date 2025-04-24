@@ -1,7 +1,0 @@
-<launch>
-    <include file="$(find ucar_camera)/launch/ucar_camera.launch"/>
-    <include file="$(find ucar_controller)/launch/tf_server.launch"/>
-    <node pkg="ucar_demo" name="qrcode_node" type="qrcode_detector.py" output="screen"/>
-    <param name="qrcode_app" value="True"/>
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ucar_demo)/config/qrcode_test.rviz" required="true" />
-</launch>

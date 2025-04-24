@@ -1,5 +1,0 @@
-<launch>
-    <include file="$(find ucar_camera)/launch/ucar_camera.launch"/>
-    <include file="$(find ucar_controller)/launch/tf_server.launch"/>
-    <node pkg="ucar_demo" name="yolo_node" type="yolo_demo.py" output="screen"/>
-</launch>

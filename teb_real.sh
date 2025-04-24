@@ -13,5 +13,7 @@ gnome-terminal -e "roslaunch ucar_controller base_driver.launch"
 sleep 5
 gnome-terminal -e "roslaunch ydlidar ydlidar.launch"
 sleep 5
+gnome-terminal -e "roslaunch xf_mic_asr_offline xf_mic_asr_offline.launch"
+sleep 5
 chmod +x $(rospack find navigation2)/src/navigation2.py
 gnome-terminal -e "rosrun navigation2 navigation2.py"

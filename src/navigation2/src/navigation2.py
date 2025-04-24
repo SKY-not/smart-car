@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import rospy
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Float64MultiArray, Int32
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 import actionlib
 import numpy as np
@@ -22,6 +22,8 @@ def save_data_to_txt(points, measurements, file_path):
         for point, measurement in zip(points, measurements):
             f.write(f"({point[0]}, {point[1]}): {measurement}\n")
 
+## 辐射源位置估计
+# 计算两个点之间的平方距离
 def dist_sqr(x1, y1, x2, y2):
     return (x1 - x2) ** 2 + (y1 - y2) ** 2
 
@@ -54,6 +56,12 @@ class navigation_node2:
         rospy.init_node('navigation_node')
         meow("navigation2.py starts")
 
+        # 订阅唤醒信号
+        self.awake_angle = -1  # 初始化唤醒角度
+        self.awake_received = False  # 标志是否收到唤醒信号
+        self.awake_sub = rospy.Subscriber('/mic/awake/angle', Int32, self.awake_callback)
+        
+        # 订阅辐射源强度
         self.sub = rospy.Subscriber('radiation2', Float64MultiArray, self.radiation_callback)
         meow("navigation2.py raidiation2 subscriber starts")
         self.pub = rospy.Publisher('points', Float64MultiArray)
@@ -85,7 +93,6 @@ class navigation_node2:
         # 接受辐射源强度
         self.received_radiation = False
         meow("Received radiation intensity!!!!!")
-
 
     def get_radiation_sources(self):
         rospy.sleep(5)
@@ -184,17 +191,31 @@ class navigation_node2:
 
         meow("navigation2.py end")
 
+    def wait_for_call(self):
+        meow("navigation2.py begins waiting for call")
+        while not self.awake_received and not rospy.is_shutdown():
+            rospy.sleep(1)  # 等待唤醒信号
+            meow("I'm waiting for the wake-up signal...")
+        meow("Wake-up signal received, starting navigation...")
+
     def radiation_callback(self, msg):
         self.received_radiation = True
         meow("navigation2.py Received radiation intensity")
         self.measurements = msg.data
         meow(f"Received radiation intensity: {self.measurements}")
 
+    def awake_callback(self, msg):
+        """处理唤醒信号的回调函数"""
+        self.awake_angle = msg.data
+        self.awake_received = True
+        meow(f"Received wake-up signal with angle: {self.awake_angle}")
+
 if __name__ == '__main__':
     try:
         navigation_node = navigation_node2()
         navigation_node.get_rad()
         navigation_node.get_radiation_sources()
+        navigation_node.wait_for_call()
         navigation_node.run()
     except rospy.ROSInterruptException:
         pass
