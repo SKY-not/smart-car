@@ -4,7 +4,6 @@ source devel/setup.bash
 # 编译
 catkin_make
 # 运行
-# gnome-terminal -e "roslaunch nav teb_race_demo_singlepath.launch"
 gnome-terminal -e "roslaunch nav teb_real.launch"
 sleep 5
 gnome-terminal -e "rosrun radiation_pub2 radiation_pub2"
