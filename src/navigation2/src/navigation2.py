@@ -12,20 +12,18 @@ from scipy.optimize import least_squares
 def meow(str):
     rospy.loginfo(str)
     # with open("/home/kiwi/SmartCar/smart-car/debug.txt", "w") as fout:
-    #     fout.write(str)
+    with open("debug.txt", "w") as fout:
+        fout.write(str)
 
 # 输出测试点的坐标def save_data_to_txt(points, measurements, file_path):
 def save_data_to_txt(points, measurements, file_path):  
     with open(file_path, 'w') as f:
-        # 写入points数据
-        f.write("Points:\n")
-        for point in points:
-            f.write(f"({point[0]}, {point[1]})\n")
-        
-        # 写入measurements数据
-        f.write("\nMeasurements:\n")
-        for measurement in measurements:
-            f.write(f"{measurement}\n")
+        f.write("Points and Measurements:\n")
+        for point, measurement in zip(points, measurements):
+            f.write(f"({point[0]}, {point[1]}): {measurement}\n")
+
+def dist_sqr(x1, y1, x2, y2):
+    return (x1 - x2) ** 2 + (y1 - y2) ** 2
 
 # 定义残差函数
 def residual(params, points, measurements, epsilon=1e-6):
@@ -51,32 +49,54 @@ def initial_guess(points, measurements):
     k_guess2 = measurements[max_idx]
     return [x_guess1, y_guess1, k_guess1, x_guess2, y_guess2, k_guess2]
 
-
-def dist_sqr(x1, y1, x2, y2):
-    return (x1 - x2) ** 2 + (y1 - y2) ** 2
-
 class navigation_node2:
-    key_points = 8
-    id = 0
-    rad = [0.0] * key_points
-    x_rad_1, y_rad_1 = 0.0, 0.0
-    x_rad_2, y_rad_2 = 0.0, 0.0
-    x = np.linspace(0.0, 5.2, key_points)
-    y = np.zeros_like(x)
-    x_real = [0.0] * key_points
-    y_real = [0.0] * key_points
-    flag = [False] * key_points
+    def __init__(self):
+        rospy.init_node('navigation_node')
+        meow("navigation2.py starts")
 
-    def get_rad_xy(self):
-        points = [(self.x_real[i], self.y_real[i]) for i in range(self.key_points)]
-        measurements = [self.rad[i] for i in range(self.key_points)]
-        initial_params = initial_guess(points, measurements)
+        self.sub = rospy.Subscriber('radiation2', Float64MultiArray, self.radiation_callback)
+        meow("navigation2.py raidiation2 subscriber starts")
+        self.pub = rospy.Publisher('points', Float64MultiArray)
+        meow("navigation2.py points pubisher starts")
+        self.ac = actionlib.SimpleActionClient('move_base', MoveBaseAction)
+        meow("navigation2.py action client")
+        self.goal = MoveBaseGoal()
+        meow("navigation2.py move base goal")
+
+        self.key_points = 6
+        self.measurements = []  # Initialize measurements with a default value
+        while not self.ac.wait_for_server(rospy.Duration.from_sec(5.0)):
+            rospy.loginfo("Waiting for the move_base action server to come up")
+
+    def get_rad(self):
+        self.x = np.linspace(0.0, 3, self.key_points)
+        self.y = np.linspace(0.0, 3, self.key_points)
+        self.points = np.array([[self.x[i], self.y[j]] for i in range(self.key_points) for j in range(self.key_points)])
+        meow("Generated points array")
+        # 保存点坐标到文件
+        # save_data_to_txt(points, self.measurements, "points.txt")
+        
+        # 发送点坐标
+        points_msg = Float64MultiArray()
+        points_msg.data = self.points.flatten().tolist()
+        self.pub.publish(points_msg)
+        meow("navigation2.py points published")
+
+        # 接受辐射源强度
+        self.received_radiation = False
+        meow("Received radiation intensity!!!!!")
+
+
+    def get_radiation_sources(self):
+        rospy.sleep(5)
+        initial_params = initial_guess(self.points, self.measurements)
+        save_data_to_txt(self.points, self.measurements, "points.txt")
         result = least_squares(
             residual, 
             initial_params, 
-            args=(points, measurements),
+            args=(self.points, self.measurements),
             method='lm',  # Levenberg-Marquardt算法
-            max_nfev=1800   # 最大迭代次数
+            max_nfev=3000   # 最大迭代次数
         )
         self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2 = result.x
         
@@ -86,41 +106,25 @@ class navigation_node2:
         self.x_rad_2 = abs(self.x_rad_2)
         self.y_rad_2 = -abs(self.y_rad_2)
 
-        # 将第1次计算的结果作为初始值，进行第2次计算
+        # 将第1次的结果作为第2次下降的初始值
+        initial_params = [self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2]
         result = least_squares(
             residual, 
-            [self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2], 
-            args=(points, measurements),
+            initial_params, 
+            args=(self.points, self.measurements),
             method='lm',  # Levenberg-Marquardt算法
-            max_nfev=6000   # 最大迭代次数
+            max_nfev=8000   # 最大迭代次数
         )
-
         self.x_rad_1, self.y_rad_1, k_rad_1, self.x_rad_2, self.y_rad_2, k_rad_2 = result.x
+        # 通过暴力的方式将坐标转换为给定的象限
         self.x_rad_1 = abs(self.x_rad_1)
         self.y_rad_1 = -abs(self.y_rad_1)
         self.x_rad_2 = abs(self.x_rad_2)
         self.y_rad_2 = -abs(self.y_rad_2)
+        meow(f"Calculated radiation sources: {self.x_rad_1:.2f} {self.y_rad_1:.2f} {self.x_rad_2:.2f} {self.y_rad_2:.2f}")
 
-        # 获取辐射强度信息
-    def radiation_sub(self, msg):
-        if not self.flag[self.id]:
-            self.rad[self.id] = msg.data[0]
-            self.x_real[self.id] = msg.data[1]
-            self.y_real[self.id] = msg.data[2]
-
-    def __init__(self):
-        rospy.init_node('navigation_node')
-        meow("navigation2.py start")
-        self.sub = rospy.Subscriber('radiation2', Float64MultiArray, self.radiation_sub)
-        meow("navigation2.py subscribe radiation2")
-        self.ac = actionlib.SimpleActionClient('move_base', MoveBaseAction)
-        meow("navigation2.py action client")
-        self.goal = MoveBaseGoal()
-        meow("navigation2.py move base goal")
-
-        while not self.ac.wait_for_server(rospy.Duration.from_sec(5.0)):
-            rospy.loginfo("Waiting for the move_base action server to come up")
-        
+    def run(self):
+        meow("navigation2.py run")
         self.goal.target_pose.header.frame_id = "map"
         self.goal.target_pose.header.stamp = rospy.Time.now()
         self.goal.target_pose.pose.position.z = 0.0
@@ -130,27 +134,17 @@ class navigation_node2:
         self.goal.target_pose.pose.orientation.w = 1.0
         meow("navigation2.py move base goal init")
 
-        for i in range(self.key_points):
-            rospy.loginfo("%d?", i)
-            self.goal.target_pose.pose.position.x = self.x[i]
-            self.goal.target_pose.pose.position.y = self.y[i]
-            self.ac.send_goal(self.goal)
-            self.ac.wait_for_result()
-            self.id = i
-            msg = rospy.wait_for_message('radiation2', Float64MultiArray, timeout=None)
-            meow("navigation2.py waits for radiation2, try running radiation_sub")
-            self.radiation_sub(msg)
-            meow("navigation2.py runs radiation_sub successfully")
-            rospy.loginfo("%d!", i)
-
-        meow("try 2 cacl radiation source")
-        self.get_rad_xy()
-        meow("navigation2.py get radiation source")
+        # 根据距离原点的距离排序辐射源
+        dist1 = dist_sqr(self.x_rad_1, self.y_rad_1, 0, 0)
+        dist2 = dist_sqr(self.x_rad_2, self.y_rad_2, 0, 0)
+        if dist1 > dist2:
+            self.x_rad_1, self.x_rad_2 = self.x_rad_2, self.x_rad_1
+            self.y_rad_1, self.y_rad_2 = self.y_rad_2, self.y_rad_1
 
         # 输出辐射源的坐标
         with open("rad_info.txt", "w") as fout:
-            fout.write(f"第一个辐射源坐标：{self.x_rad_1:.2f} {self.y_rad_1:.2f}\n")
-            fout.write(f"第二个辐射源坐标：{self.x_rad_2:.2f} {self.y_rad_2:.2f}\n")
+            fout.write(f"第一个辐射源坐标（较近）：{self.x_rad_1:.2f} {self.y_rad_1:.2f}\n")
+            fout.write(f"第二个辐射源坐标（较远）：{self.x_rad_2:.2f} {self.y_rad_2:.2f}\n")
 
         # 移动到辐射源1的位置
         self.goal.target_pose.pose.position.x = self.x_rad_1
@@ -178,8 +172,17 @@ class navigation_node2:
 
         meow("navigation2.py end")
 
+    def radiation_callback(self, msg):
+        self.received_radiation = True
+        meow("navigation2.py Received radiation intensity")
+        self.measurements = msg.data
+        meow(f"Received radiation intensity: {self.measurements}")
+
 if __name__ == '__main__':
     try:
-        navigation_node2()
+        navigation_node = navigation_node2()
+        navigation_node.get_rad()
+        navigation_node.get_radiation_sources()
+        navigation_node.run()
     except rospy.ROSInterruptException:
         pass

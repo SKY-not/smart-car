@@ -579,6 +579,12 @@ navigation_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/navigation
 pluginlib_DIR:PATH=/opt/ros/noetic/share/pluginlib/cmake
 
 //Value Computed by CMake
+radiation_calc_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/radiation_calc
+
+//Value Computed by CMake
+radiation_calc_SOURCE_DIR:STATIC=/home/kiwi/SmartCar/smart-car/src/radiation_calc
+
+//Value Computed by CMake
 radiation_pub2_BINARY_DIR:STATIC=/home/kiwi/SmartCar/smart-car/build/radiation_pub2
 
 //Value Computed by CMake
@@ -867,7 +873,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=21
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=20
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

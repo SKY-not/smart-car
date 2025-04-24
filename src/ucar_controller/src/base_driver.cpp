@@ -6,8 +6,8 @@ baseBringup::baseBringup() :x_(0), y_(0), th_(0)
 {
   ros::NodeHandle pravite_nh("~");
   pravite_nh.param("provide_odom_tf", provide_odom_tf_,true);
-  pravite_nh.param("vel_topic", vel_topic_,std::string("/cmd_vel"));///smooth_cmd_vel
-  
+  //pravite_nh.param("vel_topic", vel_topic_,std::string("/cmd_vel"));///smooth_cmd_vel
+  pravite_nh.param("cmd_vel", vel_topic_,std::string("/cmd_vel"));///smooth_cmd_vel
   pravite_nh.param("joy_topic",  joy_topic_, std::string("/joy"));
   pravite_nh.param("odom_topic", odom_topic_,std::string("/odom"));
   pravite_nh.param("battery_topic", battery_topic_,std::string("/battery_state"));

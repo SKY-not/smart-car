@@ -68,7 +68,6 @@ all: nav/all
 all: ucar_camera/all
 all: ucar_controller/all
 all: ucar_demo/all
-all: ucar_nav/all
 all: xf_mic_asr_offline/all
 all: ydlidar/all
 
@@ -90,7 +89,6 @@ preinstall: nav/preinstall
 preinstall: ucar_camera/preinstall
 preinstall: ucar_controller/preinstall
 preinstall: ucar_demo/preinstall
-preinstall: ucar_nav/preinstall
 preinstall: xf_mic_asr_offline/preinstall
 preinstall: ydlidar/preinstall
 
@@ -117,7 +115,6 @@ clean: nav/clean
 clean: ucar_camera/clean
 clean: ucar_controller/clean
 clean: ucar_demo/clean
-clean: ucar_nav/clean
 clean: xf_mic_asr_offline/clean
 clean: ydlidar/clean
 
@@ -553,24 +550,6 @@ ucar_demo/preinstall:
 ucar_demo/clean:
 
 .PHONY : ucar_demo/clean
-
-#=============================================================================
-# Directory level rules for directory ucar_nav
-
-# Recursive "all" directory target.
-ucar_nav/all:
-
-.PHONY : ucar_nav/all
-
-# Recursive "preinstall" directory target.
-ucar_nav/preinstall:
-
-.PHONY : ucar_nav/preinstall
-
-# Recursive "clean" directory target.
-ucar_nav/clean:
-
-.PHONY : ucar_nav/clean
 
 #=============================================================================
 # Directory level rules for directory xf_mic_asr_offline
