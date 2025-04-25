@@ -1,0 +1,32 @@
+<launch>
+  <!-- 启动 ydlidar -->
+  <include file="$(find ydlidar)/launch/ydlidar.launch">
+    <param name="start_delay" value="5" />
+  </include>
+  
+  <!-- 启动 teb_real -->
+  <include file="$(find nav)/launch/teb_real.launch" />
+
+  <!-- 延迟启动 radiation_pub2 -->
+  <node pkg="radiation_pub2" type="radiation_pub2" name="radiation_pub2" output="screen">
+    <param name="start_delay" value="5" />
+  </node>
+
+  <!-- 启动 base_driver -->
+  <include file="$(find ucar_controller)/launch/base_driver.launch">
+    <param name="start_delay" value="5" />
+  </include>
+
+  
+
+  <!-- 启动 xf_mic_asr_offline -->
+  <include file="$(find xf_mic_asr_offline)/launch/xf_mic_asr_offline.launch">
+    <param name="start_delay" value="5" />
+  </include>
+
+  <!-- 启动 navigation2.py -->
+  <node pkg="navigation2" type="navigation2.py" name="navigation2" output="screen">
+    <param name="start_delay" value="5" />
+  </node>
+  
+</launch>

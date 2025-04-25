@@ -58,7 +58,6 @@ all: gazebo_race/all
 all: gazebo_train/all
 all: radiation_pub/all
 all: radiation_pub2/all
-all: build_pgm/all
 all: navigation/all
 all: navigation2/all
 all: gazebo_map_cartographer/all
@@ -67,7 +66,6 @@ all: gazebo_nav/all
 all: nav/all
 all: ucar_camera/all
 all: ucar_controller/all
-all: ucar_demo/all
 all: xf_mic_asr_offline/all
 all: ydlidar/all
 
@@ -79,7 +77,6 @@ preinstall: gazebo_race/preinstall
 preinstall: gazebo_train/preinstall
 preinstall: radiation_pub/preinstall
 preinstall: radiation_pub2/preinstall
-preinstall: build_pgm/preinstall
 preinstall: navigation/preinstall
 preinstall: navigation2/preinstall
 preinstall: gazebo_map_cartographer/preinstall
@@ -88,7 +85,6 @@ preinstall: gazebo_nav/preinstall
 preinstall: nav/preinstall
 preinstall: ucar_camera/preinstall
 preinstall: ucar_controller/preinstall
-preinstall: ucar_demo/preinstall
 preinstall: xf_mic_asr_offline/preinstall
 preinstall: ydlidar/preinstall
 
@@ -105,7 +101,6 @@ clean: gazebo_race/clean
 clean: gazebo_train/clean
 clean: radiation_pub/clean
 clean: radiation_pub2/clean
-clean: build_pgm/clean
 clean: navigation/clean
 clean: navigation2/clean
 clean: gazebo_map_cartographer/clean
@@ -114,29 +109,10 @@ clean: gazebo_nav/clean
 clean: nav/clean
 clean: ucar_camera/clean
 clean: ucar_controller/clean
-clean: ucar_demo/clean
 clean: xf_mic_asr_offline/clean
 clean: ydlidar/clean
 
 .PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory build_pgm
-
-# Recursive "all" directory target.
-build_pgm/all:
-
-.PHONY : build_pgm/all
-
-# Recursive "preinstall" directory target.
-build_pgm/preinstall:
-
-.PHONY : build_pgm/preinstall
-
-# Recursive "clean" directory target.
-build_pgm/clean:
-
-.PHONY : build_pgm/clean
 
 #=============================================================================
 # Directory level rules for directory gazebo_map_cartographer
@@ -532,24 +508,6 @@ ucar_controller/clean: ucar_controller/CMakeFiles/_ucar_controller_generate_mess
 ucar_controller/clean: ucar_controller/CMakeFiles/tf_generate_messages_lisp.dir/clean
 
 .PHONY : ucar_controller/clean
-
-#=============================================================================
-# Directory level rules for directory ucar_demo
-
-# Recursive "all" directory target.
-ucar_demo/all:
-
-.PHONY : ucar_demo/all
-
-# Recursive "preinstall" directory target.
-ucar_demo/preinstall:
-
-.PHONY : ucar_demo/preinstall
-
-# Recursive "clean" directory target.
-ucar_demo/clean:
-
-.PHONY : ucar_demo/clean
 
 #=============================================================================
 # Directory level rules for directory xf_mic_asr_offline

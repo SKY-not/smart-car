@@ -193,9 +193,7 @@ class navigation_node2:
 
     def wait_for_call(self):
         meow("navigation2.py begins waiting for call")
-        while not self.awake_received and not rospy.is_shutdown():
-            rospy.sleep(1)  # 等待唤醒信号
-            meow("I'm waiting for the wake-up signal...")
+        rospy.sleep(5) # 
         meow("Wake-up signal received, starting navigation...")
 
     def radiation_callback(self, msg):

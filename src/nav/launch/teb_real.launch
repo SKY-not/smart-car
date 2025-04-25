@@ -1,5 +1,6 @@
 <launch>
     <include file="$(find nav)/launch/teb_demo.launch"/>
+
       <!-- Load the URDF into the ROS Parameter Server -->
     <arg name="model" default="$(find gazebo_race)/urdf/waking_robot.xacro" />
  
@@ -10,4 +11,9 @@
 
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+    <include file="$(find radiation_pub2)/launch/radiation_pub2.launch"/>
+    <include file="$(find ucar_controller)/launch/base_driver.launch"/>
+    <include file="$(find ydlidar)/launch/ydlidar.launch"/>
+
 </launch>

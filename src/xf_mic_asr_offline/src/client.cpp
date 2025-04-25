@@ -51,13 +51,14 @@ int main(int argc, char *argv[])
     nh.serviceClient<xf_mic_asr_offline::Set_Awake_Word_srv>("xf_asr_offline_node/set_awake_word_srv");
     /*订阅唤醒角度*/
     ros::Subscriber awake_angle_sub = nh.subscribe("/mic/awake/angle", 1, awake_angle_Callback);
-    
+
     xf_mic_asr_offline::Get_Offline_Result_srv GetOfflineResult_srv;
     xf_mic_asr_offline::Set_Major_Mic_srv SetMajorMic_srv;
     xf_mic_asr_offline::Get_Major_Mic_srv GetMajorMic_srv;
     xf_mic_asr_offline::Set_Awake_Word_srv SetAwakeWord_srv;
+    SetAwakeWord_srv.request.awake_word = "小车启动";
 
-    std::string word = "";
+    std::string word = "小车启动";
     int recognize_fail_count;
     int recognize_fail_count_threshold;
     int confidence_threshold;
